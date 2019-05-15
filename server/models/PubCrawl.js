@@ -9,8 +9,8 @@ const pubSchema = new mongoose.Schema({
   places: [{
     address: String,
     location: {
-      type: String,
-      coordinates: [lng,lat],
+      type: { type: String, enum: ["Point"], default: "Point" },
+      coordinates: [Number],
     },
   }],
   _user: {
