@@ -30,7 +30,7 @@ export default class App extends Component {
           <h1 className="App-title">MERN Boilerplate</h1>
           <NavLink to="/" exact>Home</NavLink>
           <NavLink to="/pubs">Pubs</NavLink>
-          <NavLink to="/countries">Countries</NavLink>
+          {/* <NavLink to="/countries">Countries</NavLink> */}
           <NavLink to="/add-country">Add country</NavLink>
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
@@ -40,7 +40,7 @@ export default class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/pubs" exact component={Pubs} />
-          <Route path="/countries" component={Countries} />
+          {/* <Route path="/countries" component={Countries} /> */}
           <Route path="/add-country" component={AddCountry} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
