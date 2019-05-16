@@ -29,14 +29,32 @@ let users = [
 
 let pubCrawlExamples = [
   new PubCrawl({
-    name: "Pensão Amor",
-    places: [{
-      address: "R. do Alecrim 19, 1200-292 Lisboa",
-      location: {
-        coordinates: [38.7092441,-9.2081959 ] //lng, lat
+    name: "Lisboa Pub Crawl- Teste",
+    places: [
+      {
+        name: "Pensão do Amor",
+        address: "R. do Alecrim 19, 1200-292 Lisboa",
+        location: {
+          coordinates: [38.7092441,-9.2081959 ] //lng, lat
+        },
+      }, 
+      {
+        name: "Gin Lovers & Less",
+        address: "Praça do Príncipe Real 26, 1250-184 Lisboa",
+        location: {
+          coordinates: [38.7135124,-9.156094,], //lng, lat
+        },
       },
-    }],
+      {
+        name: "Insólito",
+        address:"R. de São Pedro de Alcântara 83, 1250-238 Lisboa",
+        location: {
+          coordinates: [38.7135124,-9.156094], //lng, lat
+        },
+      }
+    ],
     _user: users[0]._id,
+<<<<<<< HEAD
   }),
   new PubCrawl({
     name: "Gin Lovers & Less",
@@ -58,6 +76,10 @@ let pubCrawlExamples = [
     }],
     _user: users[0]._id,
   })),
+=======
+    comments: "Shalalalala"
+  })
+>>>>>>> 0dfe4a45cf1625adb77dc09f8ac7fd6ab8cc9a2b
 ]
 
 Promise.all([
