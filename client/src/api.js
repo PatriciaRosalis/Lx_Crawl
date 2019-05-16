@@ -77,6 +77,13 @@ export default {
       .catch(errHandler)
   },
 
+  addPubCrawl(uploadData) {
+    return service
+      .post('/pubs', uploadData)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   addCountry(body) {
     return service
       .post('/countries', body)

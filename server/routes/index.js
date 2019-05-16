@@ -3,10 +3,6 @@ const { isLoggedIn } = require('../middlewares')
 const router = express.Router();
 const User = require('../models/User');
 
-router.get('/', (req, res, next) => {
-  res.render('paws/home-page');
-})
-
 router.get('/secret', isLoggedIn, (req, res, next) => {
   res.json({
     secret: 42,

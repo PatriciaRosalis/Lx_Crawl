@@ -2,18 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pubSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    default: '',
-    required: 'Name cannot be blank'
-  },
+  name: String,
+  // {
+  //   type: String,
+  //   default: '',
+  //   required: 'Name cannot be blank'
+  // },
   places: [{
-    name: String,
+    namePub: String,
     address: String,
     location: {
       type: { type: String, enum: ["Point"], default: "Point" },
-      coordinates: [Number],
-    }
+      coordinates: [Number]
+    },
   }],
   _user: {
     type: Schema.Types.ObjectId,
