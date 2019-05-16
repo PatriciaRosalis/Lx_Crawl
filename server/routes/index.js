@@ -16,7 +16,7 @@ router.get('/secret', isLoggedIn, (req, res, next) => {
 
 // Route protected for logged in user
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  User.find({ user: req.user._id })
+  User.findById(req.user)  
     .then(response => {
       res.json(response);
     })
