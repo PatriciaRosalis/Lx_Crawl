@@ -12,7 +12,12 @@ export default class Pubs extends Component {
     return (
       <div className="Pubs">
         <h2>List of pubs</h2>
-        {this.state.pubs.map(pub => <li key={pub._id}>{pub.name}</li>)}
+        {this.state.pubs.map(pub => <li key={pub._id}>
+          {pub.name}<br />
+          {pub.places[0].name}<br />
+          {pub.places[1].name}<br />
+          {pub.places[2].name}<br />
+        </li>)}
       </div>
     );
   }

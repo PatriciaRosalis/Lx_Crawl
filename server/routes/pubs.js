@@ -14,13 +14,19 @@ router.get('/', (req, res, next) => {
 
 // Route to add a pub
 router.post('/', (req, res, next) => {
-  let { name, places} = req.body
-  PubCrawl.create({ name, places })
-    .then(newPub => {
-      res.json({
-        success: true,
-        newPub
-      });
+  let { name, address, lng, lat, comments} = req.body
+  PubCrawl.create({ 
+    name: name, 
+    places: [{
+      address: address,
+      location:{coordinates:[lng,lat]}
+    }], 
+    comments: comments
+  })
+    .then(response => {
+      res.json(
+        response
+      );
     })
     .catch(err => next(err))
 });

@@ -8,16 +8,21 @@ const pubSchema = new mongoose.Schema({
     required: 'Name cannot be blank'
   },
   places: [{
+    name: String,
     address: String,
     location: {
       type: { type: String, enum: ["Point"], default: "Point" },
       coordinates: [Number],
-    },
+    }
   }],
   _user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  comments: {
+    type: String,
+    default: " "
+  }
 }, {
   timestamps: {
     createdAt: 'createdAt'
