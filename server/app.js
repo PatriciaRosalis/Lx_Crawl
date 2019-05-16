@@ -50,7 +50,7 @@ require('./passport')(app)
 
 app.use('/api', require('./routes/index'))
 app.use('/api', require('./routes/auth'))
-app.use('/api/pubs', require('./routes/pubs'))
+app.use('/api/pubCrawls', require('./routes/pubCrawls'))
 
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
