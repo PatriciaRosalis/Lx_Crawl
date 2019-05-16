@@ -12,12 +12,16 @@ const pubSchema = new mongoose.Schema({
     location: {
       type: { type: String, enum: ["Point"], default: "Point" },
       coordinates: [Number],
-    },
+    }
   }],
   _user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  comments: {
+    type: String,
+    default: " "
+  }
 }, {
   timestamps: {
     createdAt: 'createdAt'
