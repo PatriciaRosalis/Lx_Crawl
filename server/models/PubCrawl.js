@@ -8,6 +8,7 @@ const pubSchema = new mongoose.Schema({
     required: 'Name cannot be blank'
   },
   places: [{
+    name: String,
     address: String,
     location: {
       type: { type: String, enum: ["Point"], default: "Point" },
