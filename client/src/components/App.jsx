@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, NavLink, Switch } from 'react-router-dom';
 import Home from './pages/Home';
+import Pubs from './pages/Pubs';// NEW!! TO TEST!!!!!
 import Countries from './pages/Countries';
 import AddCountry from './pages/AddCountry';
 import Secret from './pages/Secret';
@@ -28,7 +29,8 @@ export default class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">MERN Boilerplate</h1>
           <NavLink to="/" exact>Home</NavLink>
-          <NavLink to="/countries">Countries</NavLink>
+          <NavLink to="/pubs">Pubs</NavLink>
+          {/* <NavLink to="/countries">Countries</NavLink> */}
           <NavLink to="/add-country">Add country</NavLink>
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
@@ -37,7 +39,8 @@ export default class App extends Component {
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/countries" component={Countries} />
+          <Route path="/pubs" exact component={Pubs} />
+          {/* <Route path="/countries" component={Countries} /> */}
           <Route path="/add-country" component={AddCountry} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
