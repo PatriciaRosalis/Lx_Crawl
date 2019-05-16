@@ -57,7 +57,7 @@ let pubCrawlExamples = [
       },
     }],
     _user: users[0]._id,
-  }),
+  })),
 ]
 
 Promise.all([
