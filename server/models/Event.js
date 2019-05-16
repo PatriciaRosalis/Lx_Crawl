@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const PubCrawl = require('../models/PubCrawl');
+
 
 const EventSchema = new mongoose.Schema({
+  _pubCrawl, 
   title: {
     type: String,
     default: '',
