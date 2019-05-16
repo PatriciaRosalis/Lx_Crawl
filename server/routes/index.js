@@ -25,16 +25,4 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
     })
 })
 
-router.post('/profile', isLoggedIn, (req, res, next) => {
-  Profile.create({
-    _user: req.user._id,
-  })
-    .then(response => {
-      res.json(response);
-    })
-    .catch(err => {
-      res.json(err);
-    })
-})
-
 module.exports = router;
