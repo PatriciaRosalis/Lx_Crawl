@@ -50,6 +50,7 @@ require('./passport')(app)
 
 app.use('/api', require('./routes/index'))
 app.use('/api', require('./routes/auth'))
+app.use('/api', require('./routes/my-pubcrawls'))
 app.use('/api/pubCrawls', require('./routes/pubCrawls'))
 
 
