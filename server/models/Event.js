@@ -4,7 +4,14 @@ const PubCrawl = require('../models/PubCrawl');
 
 
 const EventSchema = new mongoose.Schema({
-  _pubCrawl, 
+  _pubCrawl: {
+    type: Schema.Types.ObjectId,
+    ref: 'PubCrawl'
+  },
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   title: {
     type: String,
     default: '',

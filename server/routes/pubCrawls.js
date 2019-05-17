@@ -28,7 +28,7 @@ router.get('/', (req, res, next) => {
 //  .catch(err => next(err))
 //});
 
-
+//Create an empty pubCrawl - that we will update with the one below.
 router.post('/', (req, res, next) => {
   PubCrawl.create({ 
     name: "",
