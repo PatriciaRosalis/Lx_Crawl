@@ -10,15 +10,5 @@ router.get('/secret', isLoggedIn, (req, res, next) => {
   });
 });
 
-// Route protected for logged in user
-router.get('/profile', isLoggedIn, (req, res, next) => {
-  User.findById(req.user)  
-    .then(response => {
-      res.json(response);
-    })
-    .catch(err => {
-      res.json(err);
-    })
-})
 
 module.exports = router;
