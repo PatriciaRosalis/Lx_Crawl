@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { Route, Link, NavLink, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Pubs from './pages/Pubs';// NEW!! TO TEST!!!!!
-import Countries from './pages/Countries';
-import AddCountry from './pages/AddCountry';
-import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
-import logo from '../logo.svg';
 
 export default class App extends Component {
   constructor(props) {
@@ -29,10 +25,10 @@ export default class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           {/* <Route path="/pubs" exact component={Pubs} /> */}
-          <Route path="/add-pub" component={AddPub} />
+          {/* <Route path="/add-pub" component={AddPub} /> */}
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
+          {/* <Route path="/profile" component={Profile} /> */}
           <Route render={() => <h2>404</h2>} />
         </Switch>
       </div>
