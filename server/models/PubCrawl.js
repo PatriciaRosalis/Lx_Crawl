@@ -3,11 +3,6 @@ const Schema = mongoose.Schema;
 
 const pubSchema = new mongoose.Schema({
   name: String,
-  // {
-  //   type: String,
-  //   default: '',
-  //   required: 'Name cannot be blank'
-  // },
   places: [{
     namePub: String,
     address: String,
@@ -23,6 +18,20 @@ const pubSchema = new mongoose.Schema({
   comments: {
     type: String,
     default: " "
+  },
+  startDate: {
+    type: Date,
+    default: Date.now,
+    required: [true, 'Must have a start date'],
+  },
+  endDate: {
+    type: Date,
+    default: Date.now,
+    required: [true, 'The End Data is required'],
+  },
+  participants: {
+    type: Number,
+    max: 15,
   }
 }, {
   timestamps: {

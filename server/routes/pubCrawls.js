@@ -33,7 +33,10 @@ router.post('/', (req, res, next) => {
   PubCrawl.create({ 
     name: "",
     places: [], 
-    comments: ""
+    comments: "",
+    startDate: newDate(),
+    endDate: newDate(),
+    participants: ""
   })
     .then(response => {
       res.json(
@@ -56,11 +59,19 @@ router.get('/:pubCrawlId', (req, res, next) => {
 router.put('/:pubCrawlId', (req, res, next) => {
   const { name,
     places,
-    comments} = req.body
+    comments,
+    startDate,
+    endDate,
+    participants
+  } = req.body
   
   const updates =  { name,
     places,
-    comments}
+    comments,
+    startDate,
+    endDate,
+    participants
+  }
   PubCrawl.findByIdAndUpdate(req.params.pubCrawlId, updates, { new: true })
     .then(pubCrawl=> {
       res.json(pubCrawl)
