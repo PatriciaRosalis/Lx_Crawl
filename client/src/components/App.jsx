@@ -25,26 +25,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">MERN Boilerplate</h1>
-          <NavLink to="/" exact>Home</NavLink>
-          <NavLink to="/pubs">Pubs</NavLink>
-          {/* <NavLink to="/countries">Countries</NavLink> */}
-          <NavLink to="/add-country">Add country</NavLink>
-          {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-          {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
-          <NavLink to="/secret">Secret</NavLink>
-        </header>
+    
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/pubs" exact component={Pubs} />
-          {/* <Route path="/countries" component={Countries} /> */}
-          <Route path="/add-country" component={AddCountry} />
+          {/* <Route path="/pubs" exact component={Pubs} /> */}
+          <Route path="/add-pub" component={AddPub} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
-          <Route path="/secret" component={Secret} />
+          <Route path="/profile" component={Profile} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
       </div>
