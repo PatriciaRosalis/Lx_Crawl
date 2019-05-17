@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../../api';
 
 
-export default class AddCountry extends Component {
+export default class AddPubCrawl extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,7 +30,7 @@ export default class AddCountry extends Component {
       area: this.state.area,
       description: this.state.description,
     }
-    api.addCountry(data)
+    api.addPubCrawl(uploadData)
       .then(result => {
         console.log('SUCCESS!')
         this.setState({
