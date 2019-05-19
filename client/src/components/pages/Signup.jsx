@@ -33,22 +33,33 @@ export default class Signup extends Component {
         this.props.history.push("/") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
-  }
+    }
+    
+    render() {
+      return (
+        <div className="Signup">
+        <img className="sign-title" src="../../../backgroundApp.png" alt="bcg" />
+        <img src="/titlenoflag.png" alt="pubcrawl" width="100px" />
 
-  render() {
-    return (
-      <div className="Signup">
-        <h2>Signup</h2>
-        <img src="../../../backgroundApp.png" alt="bcg" />
-        <form>
-          <input type="text" value={this.state.username} placeholder="Username" name="username" onChange={this.handleInputChange} /> <br />
-          <input type="text" value={this.state.name} placeholder="Name" name="name" onChange={this.handleInputChange} /> <br />
-          <input type="password" value={this.state.password} placeholder="password" name="password" onChange={this.handleInputChange} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Signup</button>
+        <form action="#" className="form">
+          <div class="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
+            <label class="mdl-textfield__label" for="username">Username</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> 
+            <label class="mdl-textfield__label" for="name">Name</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
+            <label class="mdl-textfield__label" for="password">Password</label>
+          </div>
+          <button className="mdl-button mdl-js-button mdl-button--accent" onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}
         </div>}
+
       </div>
     );
   }

@@ -3,14 +3,42 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+h3 {
+  color:#E34D24;
+  }
+  img {
+    margin-top: 15px;   
+  }
+}
+
+.Login {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+color: white;
+img {
+  margin-top: 25px;   
+}
 h2 {
   color:#E34D24;
   }
-form {
-  margin:10px;
-  padding: 10px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  label {
+    color: white;
   }
-form input {
-    margin-bottom: 15px;
-  }
+}
+
+.sign-title {
+  width: 600px; 
+}
+
+.about {
+  margin-top: 10px;
 }
