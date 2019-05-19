@@ -11,7 +11,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
           <img src="../title.png" alt="title" />
-          <quote> Create and Share pub crawls in Lisbon </quote>
+          <p> Create and Share pub crawls in Lisbon </p>
           <img src="../backgroundApp.png" alt="bcg" />
           <Link to="/login"><button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login</button></Link>
           <Link to="/signup"><button>Sign Up</button></Link>

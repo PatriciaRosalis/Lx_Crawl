@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import '../../../src/sign.scss';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -38,10 +39,11 @@ export default class Signup extends Component {
     return (
       <div className="Signup">
         <h2>Signup</h2>
+        <img src="../../../backgroundApp.png" alt="bcg" />
         <form>
-          Username: <input type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> <br />
-          Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />
-          Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
+          <input type="text" value={this.state.username} placeholder="Username" name="username" onChange={this.handleInputChange} /> <br />
+          <input type="text" value={this.state.name} placeholder="Name" name="name" onChange={this.handleInputChange} /> <br />
+          <input type="password" value={this.state.password} placeholder="password" name="password" onChange={this.handleInputChange} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">

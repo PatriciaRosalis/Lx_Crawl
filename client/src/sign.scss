@@ -1,0 +1,16 @@
+.Signup {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+h2 {
+  color:#E34D24;
+  }
+form {
+  margin:10px;
+  padding: 10px;
+  }
+form input {
+    margin-bottom: 15px;
+  }
+}

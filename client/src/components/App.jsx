@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Pubs from './pages/Pubs';// NEW!! TO TEST!!!!!
 import Login from './pages/Login';

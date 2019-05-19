@@ -23,7 +23,7 @@ export default class Login extends Component {
     api.login(this.state.username, this.state.password)
       .then(result => {
         console.log('SUCCESS!')
-        this.props.history.push("/") // Redirect to the home page
+        this.props.history.push("/profile") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
@@ -32,6 +32,7 @@ export default class Login extends Component {
     return (
       <div className="Login">
         <h2>Login</h2>
+        <img src="../../../backgroundApp.png" alt="bcg" />
         <form>
           Username: <input type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> <br />
           Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
