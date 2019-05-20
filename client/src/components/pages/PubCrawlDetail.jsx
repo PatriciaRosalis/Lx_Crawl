@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api.js';
+import Navbar from './Navbar'
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 
 export default class PubCrawlDetail extends Component {
@@ -30,6 +31,8 @@ export default class PubCrawlDetail extends Component {
     return (
       
       <div className="PubCrawlDetail">
+        <Navbar />
+
         <h1>{this.state.pubCrawl.name}</h1>
         <p><strong>Comments:</strong>{this.state.pubCrawl.comments}</p>
         <p><strong>Start Date:</strong>{this.state.pubCrawl.startDate}</p>

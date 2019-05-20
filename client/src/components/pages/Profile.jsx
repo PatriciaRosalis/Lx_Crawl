@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios';
-import '../../../src/profile.scss';
+import Navbar from './Navbar'
+// import '../../../src/profile.scss';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="Profile">
-
+        <Navbar />
         <div className="_container">
           <div className="_1container">
             <img className="img" src="../beer.svg" alt="" />
