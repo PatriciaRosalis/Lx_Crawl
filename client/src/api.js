@@ -91,6 +91,14 @@ export default {
       .catch(errHandler)
   },
 
+   editPubCrawl(pubCrawlId, data){
+     return service
+       .put(`/pubCrawls/${pubCrawlId}`, data)
+       .then(res => res.data)
+       .catch(errHandler)
+   },
+
+
   addCountry(body) {
     return service
       .post('/countries', body)
