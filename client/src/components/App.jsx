@@ -9,16 +9,16 @@ import api from '../api';
 import Profile from './pages/Profile';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      countries: []
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     pubCrawl: []
+  //   }
+  // }
 
-  handleLogoutClick(e) {
-    api.logout()
-  }
+  // handleLogoutClick(e) {
+  //   api.logout()
+  // }
 
   render() {
     return (
@@ -26,7 +26,6 @@ export default class App extends Component {
     
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/pubs" exact component={Pubs} /> */}
           <Route path="/add-pubcrawl" component={AddPubCrawl} />
           <Route path="/:pubCrawlId" component={PubCrawlDetail} />
           <Route path="/signup" component={Signup} />

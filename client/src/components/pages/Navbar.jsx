@@ -20,7 +20,7 @@ function Navbar() {
         <div className="mdl-layout__drawer">
           <span className="mdl-layout-title"><img className="title-nav" src="../title.png" alt="title" /></span>
           <nav className="mdl-navigation">
-            <Link className="mdl-navigation__link" to="/profile">Profile</Link>
+            <Link className="mdl-navigati on__link" to="/profile">Profile</Link>
             <Link className="mdl-navigation__link" to="/add-pubcrawl">Add PubCrawl</Link>
             {/* <Link className="mdl-navigation__link" to="">Join PubCrawl</Link> */}
           </nav>
