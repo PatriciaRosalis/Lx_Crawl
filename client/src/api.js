@@ -77,6 +77,13 @@ export default {
       .catch(errHandler)
   },
 
+  getOnePubCrawl(pubCrawlId){
+    return service
+      .get(`/pubCrawls/${pubCrawlId}`)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   addPubCrawl(uploadData) {
     return service
       .post('/pubCrawls', uploadData)
