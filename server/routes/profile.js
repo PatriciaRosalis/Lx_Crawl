@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 // Route protected for logged in user
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  User.findById(req.user)  
+  User.findById(req.user._id)  
     .then(response => {
       res.json(response);
     })

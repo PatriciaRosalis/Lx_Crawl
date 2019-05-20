@@ -49,9 +49,10 @@ router.post('/add-pubcrawl', (req, res, next) => {
 
 //Route to get a specific pub crawl by its ID --- WORKS
 router.get('/:pubCrawlId', (req, res, next) => {
+  console.log("BACK ENND", req.params.pubCrawlId)
   PubCrawl.findById(req.params.pubCrawlId)
-    .then( pubCrawl => {
-      res.json(pubCrawl)
+    .then(response => {
+      res.json(response)
     })
     .catch(err => next(err))
 });

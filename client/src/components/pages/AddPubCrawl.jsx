@@ -90,7 +90,7 @@ export default class AddPubCrawl extends Component {
       <div className="AddPubCrawl">
         <Navbar /> 
         <br /> 
-        <br /> 
+        
         <h2>Add Pub Crawl</h2>
         <form> 
           Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />
