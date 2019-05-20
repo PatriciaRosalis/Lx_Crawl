@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../api';
 import ReactDom from 'react-dom'
 import axios from 'axios';
+import Navbar from './Navbar'
 
 
 export default class AddPubCrawl extends Component {
@@ -87,6 +88,9 @@ export default class AddPubCrawl extends Component {
   render() {
     return (
       <div className="AddPubCrawl">
+        <Navbar /> 
+        <br /> 
+        <br /> 
         <h2>Add Pub Crawl</h2>
         <form> 
           Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />

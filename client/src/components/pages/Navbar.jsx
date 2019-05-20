@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -21,7 +21,7 @@ function Navbar() {
           <span className="mdl-layout-title"><img className="title-nav" src="../title.png" alt="title" /></span>
           <nav className="mdl-navigation">
             <Link className="mdl-navigation__link" to="/profile">Profile</Link>
-            <Link className="mdl-navigation__link" to="/">Add PubCrawl</Link>
+            <Link className="mdl-navigation__link" to="/add-pubcrawl">Add PubCrawl</Link>
             {/* <Link className="mdl-navigation__link" to="">Join PubCrawl</Link> */}
           </nav>
         </div>
