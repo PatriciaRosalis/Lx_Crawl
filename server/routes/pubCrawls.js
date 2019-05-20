@@ -28,15 +28,16 @@ router.get('/', (req, res, next) => {
 //  .catch(err => next(err))
 //});
 
-//Create an empty pubCrawl - that we will update with the one below.
-router.post('/', (req, res, next) => {
+//Create a pubCrawl - that we will update with the one below.
+router.post('/add-pubcrawl', (req, res, next) => {
+  console.log(req.body)
   PubCrawl.create({ 
-    name: "",
-    places: [], 
-    comments: "",
-    startDate: new Date(),
-    endDate: new Date(),
-    participants: ""
+    name: req.body.name,
+    places: req.body.places, 
+    comments: req.body.comments,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    participants: req.body.participants
   })
     .then(response => {
       res.json(

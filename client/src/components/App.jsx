@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import Pubs from './pages/Pubs';// NEW!! TO TEST!!!!!
+import AddPubCrawl from './pages/AddPubCrawl';// NEW!! TO TEST!!!!!
+import PubCrawlDetail from './pages/PubCrawlDetail';// NEW!! TO TEST!!!!!
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
@@ -26,7 +27,8 @@ export default class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           {/* <Route path="/pubs" exact component={Pubs} /> */}
-          {/* <Route path="/add-pub" component={AddPub} /> */}
+          <Route path="/add-pubcrawl" component={AddPubCrawl} />
+          <Route path="/:pubCrawlId" component={PubCrawlDetail} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
