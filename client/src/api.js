@@ -70,16 +70,16 @@ export default {
   //     .catch(errHandler)
   // },
 
-  getPubs(){
+  getAllPubCrawls(){
     return service
-      .get('/pubs')
+      .get('/pubCrawls')
       .then(res => res.data)
       .catch(errHandler)
   },
 
   addPubCrawl(uploadData) {
     return service
-      .post('/pubs', uploadData)
+      .post('/pubCrawls', uploadData)
       .then(res => res.data)
       .catch(errHandler)
   },

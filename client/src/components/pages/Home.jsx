@@ -15,6 +15,7 @@ export default class Home extends Component {
           <img src="../backgroundApp.png" alt="bcg" />
           <Link to="/login"><button className="mdl-button mdl-js-button mdl-button--accent">Login</button></Link>
           <Link to="/signup"><button className="mdl-button mdl-js-button mdl-button--accent">Sign Up</button></Link>
+          <Link to="/new-pubCrawl"><button className="mdl-button mdl-js-button mdl-button--accent">Add new pub crawl</button></Link>
           <Link className="about" to="/about">About Us</Link>
       </div>
     );
