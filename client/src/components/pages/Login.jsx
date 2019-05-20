@@ -10,6 +10,7 @@ export default class Login extends Component {
       message: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleInputChange(event) {
