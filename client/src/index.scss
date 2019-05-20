@@ -1,3 +1,7 @@
+@import "./styles/profile";
+@import "./styles/sign";
+
+
 // --------------------
 // Definition of variables
 $primary: #32c3ff;
@@ -123,4 +127,13 @@ body {
 
 .title-nav {
   height: 50px;
+}
+
+.mdl-layout__header {
+  background: none;
+}
+
+.mdl-layout__drawer {
+  background-color: #191919;
+  border: none;
 }
