@@ -23,7 +23,7 @@ export default class Login extends Component {
     api.login(this.state.username, this.state.password)
       .then(result => {
         console.log('SUCCESS!')
-        this.props.history.push("/") // Redirect to the home page
+        this.props.history.push("/profile") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
@@ -31,11 +31,18 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <h2>Login</h2>
-        <form>
-          Username: <input type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> <br />
-          Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Login</button>
+        <img className="sign-title" src="../../../backgroundApp.png" alt="bcg" />
+        <img src="/titlenoflag.png" alt="pubcrawl" width="100px" />
+        <form action="#" className="form">
+          <div className="mdl-textfield mdl-js-textfield form-input">
+          <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
+          <label className="mdl-textfield__label" for="username">Username</label>
+          </div>
+          <div className="mdl-textfield mdl-js-textfield">
+          <input className="mdl-textfield__input" type="password"  value={this.state.password} name="password" onChange={this.handleInputChange} /> 
+          <label className="mdl-textfield__label" for="password">Password</label>
+         </div> 
+          <button className="mdl-button mdl-js-button mdl-button--accent log-btn  " onClick={(e) => this.handleClick(e)}>Login</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}

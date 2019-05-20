@@ -1,0 +1,51 @@
+.Signup {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+h3 {
+  color:#E34D24;
+  }
+  img {
+    max-width:100%;
+    margin-top: 15px;   
+  }
+}
+
+.Login {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+color: white;
+img {
+  max-width:100%;
+  margin-top: 15px;   
+}
+h2 {
+  color:#E34D24;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  label {
+    color: white;
+  }
+}
+
+.sign-title {
+  width: 600px; 
+}
+
+.form-input {
+  margin: 30px;
+}
+
+.log-btn {
+  font-size: 20px;
+  margin-top: 20px;
+}

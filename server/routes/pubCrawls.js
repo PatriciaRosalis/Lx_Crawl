@@ -34,8 +34,8 @@ router.post('/', (req, res, next) => {
     name: "",
     places: [], 
     comments: "",
-    startDate: newDate(),
-    endDate: newDate(),
+    startDate: new Date(),
+    endDate: new Date(),
     participants: ""
   })
     .then(response => {
