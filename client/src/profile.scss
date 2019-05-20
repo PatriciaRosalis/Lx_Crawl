@@ -1,0 +1,68 @@
+
+.Profile {
+  // position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: orange;
+  max-width: 100%;
+  margin-bottom: 25px;
+  // height: 100%;
+  
+  img {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+._container {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+._1container {
+  // background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  padding-right: 40px;
+}
+
+._2container {
+  max-width: 50%;
+  // background-color: orange;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px;
+  
+  p {
+    padding-left: 5px;
+  }
+}
+
+._3container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.btn {
+  color: white;
+  background-color: transparent;
+  border-radius: 12px;
+  font-size: 14px;
+  padding: 5px 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.3s;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(238, 93, 56);
+  color: white;
+}
