@@ -29,7 +29,7 @@ export default class Signup extends Component {
     api.signup(data)
       .then(result => {
         console.log('SUCCESS!')
-        this.props.history.push("/") // Redirect to the home page
+        this.props.history.push("/profile") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
     }
@@ -41,17 +41,17 @@ export default class Signup extends Component {
         <img src="/titlenoflag.png" alt="pubcrawl" width="100px" />
 
         <form action="#" className="form">
-          <div className=" mdl-textfield mdl-js-textfield">
+          <div class=" mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
-            <label className="mdl-textfield__label" placeholder="username">username</label>
+            <label class="mdl-textfield__label" for="username">Username</label>
           </div>
-          <div className="mdl-textfield mdl-js-textfield">
+          <div class="mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> 
-            <label className="mdl-textfield__label" placeholder="name">name</label>
+            <label class="mdl-textfield__label" for="name">Name</label>
           </div>
-          <div className="mdl-textfield mdl-js-textfield">
+          <div class="mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
-            <label className="mdl-textfield__label" placeholder="password">password</label>
+            <label class="mdl-textfield__label" for="password">Password</label>
           </div>
           <button className="log-btn mdl-button mdl-js-button mdl-button--accent" onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>

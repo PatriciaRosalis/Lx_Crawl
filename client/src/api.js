@@ -77,6 +77,13 @@ export default {
       .catch(errHandler)
   },
 
+  getAllPubCrawlsUser(){
+    return service
+      .get('/pubCrawlsUser')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   getOnePubCrawl(pubCrawlId){
     return service
       .get(`/pubCrawls/${pubCrawlId}`)

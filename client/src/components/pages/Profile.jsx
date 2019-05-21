@@ -80,7 +80,7 @@ export default class Profile extends Component {
     )
   }
   componentDidMount() {
-    api.getAllPubCrawls()
+    api.getAllPubCrawlsUser()
     .then(pubCrawls => {
       this.setState({
         pubCrawls: pubCrawls
