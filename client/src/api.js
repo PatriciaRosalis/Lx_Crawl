@@ -86,7 +86,7 @@ export default {
 
   addPubCrawl(uploadData) {
     return service
-      .post('/pubCrawls', uploadData)
+      .post('/pubCrawls/add-pubcrawl', uploadData)
       .then(res => res.data)
       .catch(errHandler)
   },

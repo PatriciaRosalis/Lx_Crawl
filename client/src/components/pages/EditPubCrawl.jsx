@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import api from '../../api';
-
+import Navbar from './Navbar'
 
 export default class EditPubCrawl extends Component {
   constructor(props) {
@@ -88,6 +88,8 @@ export default class EditPubCrawl extends Component {
   render() {
     return (
       <div className="EditPubCrawl">
+        <Navbar />
+        
         <h2>Edit Pub Crawl</h2>
         <form> 
           Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />

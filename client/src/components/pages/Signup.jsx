@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import '../../../src/sign.scss';
 
 export default class Signup extends Component {
   constructor(props) {
