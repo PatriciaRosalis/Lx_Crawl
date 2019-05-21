@@ -20,11 +20,10 @@ export default class Profile extends Component {
         <div className="_container">
           <div className="_1container">
             <img className="img" src="../beer.svg" alt="" />
-            <h4>Name</h4>
+            { api.getLocalStorageUser() && <h4>{api.getLocalStorageUser().username}</h4>} 
           </div>
           <div className="_2container">
             <h5>My Routes</h5>
-              <p>Lorem ipsum <Link to="/:pubCrawlId"><button className="btn">REUSE</button></Link></p>
               <p>Lorem ipsum <Link to="/:pubCrawlId"><button className="btn">REUSE</button></Link></p>
               <p>Lorem ipsum <Link to="/:pubCrawlId"><button className="btn">REUSE</button></Link></p>
           </div>
@@ -33,7 +32,7 @@ export default class Profile extends Component {
         <div className="_3container">
           <div>
             
-            <h4>My Pub Crawls</h4>
+            <h4>Upcoming Pub Crawls</h4>
             <div className="demo-card-square mdl-card mdl-shadow--2dp">
               <div className="mdl-card__title mdl-card--expand">
                 <h3 className="mdl-card__title-text">Lorem ipsum</h3>
@@ -43,12 +42,14 @@ export default class Profile extends Component {
                 Aenan convallis.
               </div>
               <div className="mdl-card__actions mdl-card--border">
-                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                  View Updates</a>
+                <Link to='/edit-pubCrawl/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  Edit</Link>
+                <Link to='/pubcrawl-detail/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  View Details</Link>
               </div>
             </div>
 
-            <h4>Public Pub Crawls</h4>
+            <h4>Previous Pub Crawls</h4>
             <div className="demo-card-square mdl-card mdl-shadow--2dp">
               <div className="mdl-card__title mdl-card--expand">
                 <h3 className="mdl-card__title-text">Lorem ipsum</h3>
@@ -58,8 +59,8 @@ export default class Profile extends Component {
                 Aenan convallis.
               </div>
               <div className="mdl-card__actions mdl-card--border">
-                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                  View Updates</a>
+                <Link to='/edit-pubCrawl/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  Reuse</Link>
               </div>
             </div>
           
@@ -68,14 +69,15 @@ export default class Profile extends Component {
       </div>
     )
   }
-  componentDidMount() {
-    axios.get('http://localhost:5000/api')
-      .then(users => {
-        console.log(users)
-        this.setState({
-          users: users
-        })
-      })
-      .catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   console.log(api.getLocalStorageUser())
+  //   api.get/*something from api.js*/ */('http://localhost:5000/api')
+  //     .then(users => {
+  //       console.log(users)
+  //       this.setState({
+  //         users: users
+  //       })
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 }
