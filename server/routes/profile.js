@@ -14,4 +14,25 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
     })
 })
 
+router.get('/pubcrawl-detail/:pubCrawlId', isLoggedIn,(req,res,next) =>{
+  PubCrawl.find({_user: req.user._id}) 
+    .then(pubCrawl=>{ 
+      if(pubCrawl._user.equals(req._user._id)){
+        PubCrawl.findById(req.params.pubCrawlId)
+          .then(() => {
+            res.json({ message: `PubCrawl with is viewed successfully.` });
+          })
+          .catch( err => {
+            res.json(err);
+          })
+      }
+      else{
+        res.json({message: "You're Not authorized"})
+      }
+    })
+    .catch( err => {
+      res.json(err);
+    })
+})
+
 module.exports = router;
