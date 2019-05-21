@@ -14,8 +14,8 @@ function Navbar() {
         <div className="mdl-layout__drawer">
           <span className="mdl-layout-title"><img className="title-nav" src="../title.png" alt="title" /></span>
           <nav className="mdl-navigation">
-          <Link className="mdl-navigation__link" to="./Profile">Profile</Link>
-          <Link className="mdl-navigation__link" to="./AddPubCrawl">Add Pub</Link>
+          <Link className="mdl-navigation__link" to="/profile">Profile</Link>
+          <Link className="mdl-navigation__link" to="/add-pubcrawl">Add Pub Crawl</Link>
           </nav>
         </div>
         {/* <main className="mdl-layout__content">
