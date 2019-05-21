@@ -89,8 +89,8 @@ export default class AddPubCrawl extends Component {
   render() {
     return (
       <div className="AddPubCrawl">
-        {/* <Navbar />  */}
         <br />
+        {/* <Navbar />  */}
         <h2>Add Pub Crawl</h2>
         <div className="containerAddPub">
           <form action="action_page.php" className="form-act">
