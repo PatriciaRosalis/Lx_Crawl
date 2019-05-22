@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+// const { isLoggedIn } = require('../middlewares')
+
 
 export default class Profile extends Component {
   constructor(props) {
@@ -11,31 +13,39 @@ export default class Profile extends Component {
       user: []
     }
   }
-  handleClick(e) {
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  handleLogout(e) {
     e.preventDefault()
-    console.log(this.state.name, this.state.description)
-    let data = {
-      name: this.state.name,
-      places: this.state.places,
-      comments: this.state.comments,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate,
-      participants: this.state.participants,
-    }
-    api.deletePubCrawl(data)
+    api.logout()
       .then(result => {
         console.log('SUCCESS!')
-        this.setState({
-          message: `Your Pub Crawl '${this.state.name}' has been deleted`
-        })
-        this.props.history.push('/profile')
+        this.props.history.push("/") // Redirect to the home page
       })
-      .catch(err => this.setState({ message: err.toString() }))
+      .catch(err => this.setState({
+        message: err.toString()
+      }))
+  }
+  handleClick(data) {
+    // console.log("data", data)
+    const pubId = data;
+    api.deletePubCrawl(data)
+      .then(result => {
+        console.log('SUCCESS - DELETE!')
+        const pubCrawls = this.state.pubCrawls.filter(x => x._id !== pubId);
+        this.setState({
+          message: `Your Pub Crawl has been deleted`,
+          pubCrawls: pubCrawls
+        })
+      })
   }
 
   render() {
     return (
-      <div className="Profile">
+      <div className="Profile" >
         <Navbar />
         <div className="_container">
           <div className="_1container">
@@ -45,6 +55,9 @@ export default class Profile extends Component {
           <div className="_2container">
             <Link to={'/add-pubcrawl'} className="btns">
               New Pub Crawl</Link>
+            <br />
+            <button className="btns" onClick={(e) => this.handleLogout(e)}>
+              Logout</button>
           </div>
         </div>
 
@@ -63,7 +76,7 @@ export default class Profile extends Component {
                     <p className="card-text">{oneCrawl.startDate}</p>
                     <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns">Edit</Link>
                     <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns">View Details</Link>
-                    <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns" onClick={(e) => this.handleClick(e)}>Delete</Link>
+                    <button className="btns" onClick={() => this.handleClick(oneCrawl._id)}>Delete</button>
                   </div>
                 </div>
 
@@ -94,15 +107,17 @@ export default class Profile extends Component {
     )
   }
   componentDidMount() {
-    api.getAllPubCrawlsUser()
-      .then(pubCrawls => {
-        this.setState({
-          pubCrawls: pubCrawls
+    if (api.isLoggedIn()) {
+      api.getAllPubCrawlsUser()
+        .then(pubCrawls => {
+          this.setState({
+            pubCrawls: pubCrawls
+          })
+          console.log(this.state.pubCrawls)
         })
-        console.log(this.state.pubCrawls)
-      })
-
-
+    } else {
+      this.props.history.push("/")
+    }
     //   console.log(api.getLocalStorageUser())
     //   api.get/*something from api.js*/ */('http://localhost:5000/api')
     //     .then(users => {

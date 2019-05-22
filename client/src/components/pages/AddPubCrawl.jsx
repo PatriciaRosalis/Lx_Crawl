@@ -9,7 +9,7 @@ export default class AddPubCrawl extends Component {
     super(props)
     this.state = {
       name: "",
-      places: [{ namePub: "Castro", address: "Rua de test" }],
+      places: [{ namePub: "", address: "" }],
       comments: "",
       startDate: new Date(),
       endDate: new Date(),

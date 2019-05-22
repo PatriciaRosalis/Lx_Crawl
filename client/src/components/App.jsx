@@ -27,7 +27,7 @@ export default class App extends Component {
     
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/add-pubcrawl" component={AddPubCrawl} />
+          {api.isLoggedIn() && <Route path="/add-pubcrawl" component={AddPubCrawl} />}
           <Route path="/pubcrawl-detail/:pubCrawlId" component={PubCrawlDetail} />
           <Route path="/edit-pubcrawl/:pubCrawlId" component={EditPubCrawl} />
           <Route path="/signup" component={Signup} />
