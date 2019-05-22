@@ -82,4 +82,12 @@ router.put('/:pubCrawlId', (req, res, next) => {
     .catch(next)
 })
 
+router.deleteÇ('/:pubCrawlId', (req,res, next) => {
+  PubCrawl.findByIdAndDelete(req.params.pubCrawlId)
+  .then(pubCrawl => {
+    res.redirect('./profile')
+  })
+  .catch(next)
+})
+
 module.exports = router;

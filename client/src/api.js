@@ -105,6 +105,12 @@ export default {
        .catch(errHandler)
    },
 
+   deletePubCrawl(pubCrawlId, data) {
+     return service 
+     .delete(`/pubCrawls/${pubCrawlId}`, data)
+     .then(res=> res.data)
+     .catch(errHandler)
+  },
 
   addCountry(body) {
     return service
