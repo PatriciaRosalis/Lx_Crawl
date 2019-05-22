@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import Button from '@material-ui/core/Button';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class Signup extends Component {
             <input className="mdl-textfield__input" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
             <label class="mdl-textfield__label" htmlFor="password">Password</label>
           </div>
-          <button className="log-btn mdl-button mdl-js-button mdl-button--accent" onClick={(e) => this.handleClick(e)}>Signup</button>
+          <Button variant="contained" color="primary"  onClick={(e) => this.handleClick(e)}>Signup</Button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}

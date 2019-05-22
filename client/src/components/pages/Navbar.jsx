@@ -4,25 +4,41 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <div className="Navbar">
-      <div className="mdl-layout mdl-js-layout">
-        <header className="mdl-layout__header mdl-layout__header--scroll">
-          <div className="mdl-layout__header-row">
-            <span className="mdl-layout-title">LxCrawl</span>
-            <div className="mdl-layout-spacer"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <Link class="navbar-brand" to="#">Navbar</Link>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <Link class="nav-link" to="/profile">Profile <span class="sr-only">(current)</span></Link>
+      </li>
+      <li class="nav-item">
+        <Link class="nav-link" to="/add-pubcrawl">Add Pubcrawl</Link>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      {/* <div className="">
+        <header className="">
+          <div className="">
+            <span className="">LxCrawl</span>
+            <div className=""></div>
           </div>
         </header>
-        <div className="mdl-layout__drawer">
-          <span className="mdl-layout-title"><img className="title-nav" src="../title.png" alt="title" /></span>
-          <nav className="mdl-navigation">
-          <Link className="mdl-navigation__link" to="/">Home</Link>
-          <Link className="mdl-navigation__link" to="/profile">Profile</Link>
-          <Link className="mdl-navigation__link" to="/add-pubcrawl">Add Pub Crawl</Link>
+        <div className="">
+          <span className=""><img className="title-nav" src="../title.png" alt="title" /></span>
+          <nav className="">
+          <Link className="" to="/">Home</Link>
+          <Link className="" to="/profile">Profile</Link>
+          <Link className="" to="/add-pubcrawl">Add Pub Crawl</Link>
           </nav>
         </div>
-        {/* <main className="mdl-layout__content">
-    <div className="page-content"><!-- Your content goes here --></div>
-  </main> */}
-      </div>
+      </div> */}
     </div>
   )
 }

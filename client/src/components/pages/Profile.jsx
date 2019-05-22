@@ -9,12 +9,9 @@ export default class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: [],
-      pubCrawls: []
+      user: []
     }
   }
-
-
 
   render() {
     return (
@@ -32,61 +29,47 @@ export default class Profile extends Component {
           </div>
         </div>
 
-
-
         <div className="_3container">
           <div>
             
             <h4>Upcoming Pub Crawls</h4>
-            {this.state.pubCrawls && this.state.pubCrawls.map(oneCrawl => 
-              <div key={oneCrawl._id}>
-
-              <div className="demo-card-square mdl-card mdl-shadow--2dp">
+            <div className="demo-card-square mdl-card mdl-shadow--2dp">
               <div className="mdl-card__title mdl-card--expand">
-                <h3 className="mdl-card__title-text">{oneCrawl.name}</h3>
+                <h3 className="mdl-card__title-text">Lorem ipsum</h3>
               </div>
               <div className="mdl-card__supporting-text">
-                {oneCrawl.startDate}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenan convallis.
               </div>
               <div className="mdl-card__actions mdl-card--border">
-                <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <Link to='/edit-pubCrawl/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                   Edit</Link>
-                <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <Link to='/pubcrawl-detail/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                   View Details</Link>
               </div>
             </div>
-            </div>
-            )
-          }
 
-            {/* // <h4>Previous Pub Crawls</h4>
-            // <div className="demo-card-square mdl-card mdl-shadow--2dp">
-            //   <div className="mdl-card__title mdl-card--expand">
-            //     <h3 className="mdl-card__title-text">Lorem ipsum</h3>
-            //   </div>
-            //   <div className="mdl-card__supporting-text">
-            //     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            //     Aenan convallis.
-            //   </div>
-            //   <div className="mdl-card__actions mdl-card--border">
-            //     <Link to='/edit-pubCrawl/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            //       Reuse</Link>
-            //   </div>
-            // </div> */}
+            <h4>Previous Pub Crawls</h4>
+            <div className="demo-card-square mdl-card mdl-shadow--2dp">
+              <div className="mdl-card__title mdl-card--expand">
+                <h3 className="mdl-card__title-text">Lorem ipsum</h3>
+              </div>
+              <div className="mdl-card__supporting-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenan convallis.
+              </div>
+              <div className="mdl-card__actions mdl-card--border">
+                <Link to='/edit-pubCrawl/:pubCrawlId' className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  Reuse</Link>
+              </div>
+            </div>
           
           </div>
         </div>
       </div>
     )
   }
-  componentDidMount() {
-    api.getAllPubCrawlsUser()
-    .then(pubCrawls => {
-      this.setState({
-        pubCrawls: pubCrawls
-      })
-      console.log(this.state.pubCrawls)
-    })
+  // componentDidMount() {
   //   console.log(api.getLocalStorageUser())
   //   api.get/*something from api.js*/ */('http://localhost:5000/api')
   //     .then(users => {
@@ -96,5 +79,5 @@ export default class Profile extends Component {
   //       })
   //     })
   //     .catch(err => console.log(err))
-  }
+  // }
 }
