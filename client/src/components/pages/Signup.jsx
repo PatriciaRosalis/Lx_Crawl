@@ -32,28 +32,25 @@ export default class Signup extends Component {
         this.props.history.push("/profile") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
-    }
-    
-    render() {
-      return (
-        <div className="Signup">
+  }
+
+  render() {
+    return (
+      <div className="Signup">
         <img className="sign-title" src="../../../backgroundApp.png" alt="bcg" />
         <img src="/titlenoflag.png" alt="pubcrawl" width="100px" />
-
+        <br />
         <form action="#" className="form">
-          <div class=" mdl-textfield mdl-js-textfield">
-            <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
-            <label class="mdl-textfield__label" htmlFor="username">Username</label>
+          <div className="form-group">
+            <input placeholder="username" className="mdl-textfield__input form-control" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} />
           </div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input className="mdl-textfield__input" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> 
-            <label class="mdl-textfield__label" htmlFor="name">Name</label>
+          <div className="form-group">
+            <input placeholder="name" className="mdl-textfield__input form-control" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} />
           </div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input className="mdl-textfield__input" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
-            <label class="mdl-textfield__label" htmlFor="password">Password</label>
+          <div className="form-group">
+            <input placeholder="password" className="mdl-textfield__input form-control" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
           </div>
-          <button variant="contained" color="primary"  onClick={(e) => this.handleClick(e)}>Signup</button>
+          <button variant="contained" color="primary" className="btn btn-outline" onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}

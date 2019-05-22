@@ -3,7 +3,6 @@ import api from '../../api';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import Navbar from './Navbar'
-// import '../../../src/profile.scss';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -14,15 +13,14 @@ export default class Profile extends Component {
   }
 
 
-
   render() {
     return (
       <div className="Profile">
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="_container">
           <div className="_1container">
             <img className="img" src="../beer.svg" alt="" />
-            { api.getLocalStorageUser() && <h4>{api.getLocalStorageUser().username}</h4>} 
+            {api.getLocalStorageUser() && <h4>{api.getLocalStorageUser().username}</h4>}
           </div>
           <div className="_2container">
           <Link to={'/add-pubcrawl'} className="btns">
@@ -34,9 +32,9 @@ export default class Profile extends Component {
 
          <div className="_3container">
           <div>
-            
+
             <h4>My Pub Crawls</h4>
-            {this.state.pubCrawls && this.state.pubCrawls.map(oneCrawl => 
+            {this.state.pubCrawls && this.state.pubCrawls.map(oneCrawl =>
               <div key={oneCrawl._id}>
 
               <div className="card cards" style={{width: "18rem"}}>
@@ -68,7 +66,7 @@ export default class Profile extends Component {
             //       Reuse</Link>
             //   </div>
             // </div> */}
-          
+
           </div>
         </div>
       </div>
@@ -76,20 +74,20 @@ export default class Profile extends Component {
   }
   componentDidMount() {
     api.getAllPubCrawlsUser()
-    .then(pubCrawls => {
-      this.setState({
-        pubCrawls: pubCrawls
+      .then(pubCrawls => {
+        this.setState({
+          pubCrawls: pubCrawls
+        })
+        console.log(this.state.pubCrawls)
       })
-      console.log(this.state.pubCrawls)
-    })
-  //   console.log(api.getLocalStorageUser())
-  //   api.get/*something from api.js*/ */('http://localhost:5000/api')
-  //     .then(users => {
-  //       console.log(users)
-  //       this.setState({
-  //         users: users
-  //       })
-  //     })
-  //     .catch(err => console.log(err))
+    //   console.log(api.getLocalStorageUser())
+    //   api.get/*something from api.js*/ */('http://localhost:5000/api')
+    //     .then(users => {
+    //       console.log(users)
+    //       this.setState({
+    //         users: users
+    //       })
+    //     })
+    //     .catch(err => console.log(err))
   }
 }

@@ -34,16 +34,18 @@ export default class Login extends Component {
       <div className="Login">
         <img className="sign-title" src="../../../backgroundApp.png" alt="bcg" />
         <img src="/titlenoflag.png" alt="pubcrawl" width="100px" />
+        <br />
+
         <form action="#" className="form">
-          <div className="mdl-textfield mdl-js-textfield form-input">
-          <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
-          <label className="mdl-textfield__label" htmlFor="username">Username</label>
+          <div className="form-group">
+          <input placeholder="username" className="mdl-textfield__input form-control" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
           </div>
-          <div className="mdl-textfield mdl-js-textfield">
-          <input className="mdl-textfield__input" type="password"  value={this.state.password} name="password" onChange={this.handleInputChange} /> 
-          <label className="mdl-textfield__label" htmlFor="password">Password</label>
+
+          <div className="form-group">
+          <input placeholder="password" className="mdl-textfield__input form-control" type="password"  value={this.state.password} name="password" onChange={this.handleInputChange} /> 
          </div> 
-          <button className="mdl-button mdl-js-button mdl-button--accent log-btn  " onClick={this.handleClick}>Login</button>
+
+          <button type="button" className="btn btn-outline" onClick={this.handleClick}>Login</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}

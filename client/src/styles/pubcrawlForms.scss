@@ -61,13 +61,13 @@
 //   }
 // }
 
-.AddPubCrawl {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 50px;
-}
+// .AddPubCrawl {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   margin-bottom: 50px;
+// }
 
 .containerAddPub {
   width: 100%;
@@ -90,9 +90,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 #createPub {

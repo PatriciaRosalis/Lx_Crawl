@@ -85,46 +85,40 @@ export default class AddPubCrawl extends Component {
       <div className="AddPubCrawl">
         <Navbar />
 
-        <form>
+        <form className="space">
           <div className="form-row form-act">
-            <div className="form-group col-md-6">
-              <label htmlFor="pubcrawl color-form">PubCrawl Name</label>
-              <input className="mdl-textfield__input" id="pubName" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
+            <div className="form-group col-sm-6 col-25">
+              <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">PubCrawl Name</label>
+              <input className="mdl-textfield__input form-control" id="pubName" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
             </div>
             <div className="form-group col-md-6">
-              <label for="sdate" className="label color-form ">Start Date</label>
+              <label htmlFor="sdate" className="mdl-textfield__label" className="color-form ">Start Date</label>
               <input className="mdl-textfield__input form-control" id="sdate" name="startDate" type="date" value={this.state.startDate} onChange={this.handleInputChange} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFor="eDate" className="color-form">End Date</label>
+              <label htmlFo r="eDate" className="mdl-textfield__label" className="color-form">End Date</label>
               <input className="mdl-textfield__input form-control" id="edate" name="endDate" type="date" value={this.state.endDate} onChange={this.handleInputChange} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFor="participant" className="color-form">Participants</label>
+              <label htmlFor="participant" className="mdl-textfield__label" className="color-form">Participants</label>
               <input className="mdl-textfield__input form-control" id="participant" type="number" value={this.state.participants} name="participants" onChange={this.handleInputChange} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFor="comments" className="color-form">Comments</label>
+              <label htmlFor="comments" className="mdl-textfield__label" className="color-form">Comments</label>
               <textarea className="form-control" id="comments" name="comments" placeholder="Comments" value={this.state.comments} /*name="comments"*/ cols="40" rows="3" onChange={this.handleInputChange} ></textarea >
             </div>
-          </div>
-          <div className="space ">
             <h4>Places</h4>
-            {this.state.places.map((place, i) => <div key={i}>
-              <div className="col-25">
-                <label className="mdl-textfield__label " for="pubname" className="label color-form" >Pub Name</label>
-              </div>
-              <div className="col-75">
+            {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
+              <div className="">
+                <label className="mdl-textfield__label" htmlFor="pubname" className="label color-form">Pub Name</label>
                 <input className="mdl-textfield__input form-control" value={place.namePub} onChange={e => this.changeNamePub(e, i)} />
               </div>
-              <div className="col-25">
-                <label className="mdl-textfield__label" for="address" className="label color-form " >Address </label>
-              </div>
-              <div className="col-75">
+              <div className="">
+                <label className="mdl-textfield__label" htmlFor="address" className="label color-form">Address </label>
                 <input className="mdl-textfield__input form-control" value={place.address} onChange={e => this.changeAddress(e, i)} />
               </div>
             </div>)}
-            <button className="btn" id="createPub" onClick={(e) => this.handleClick(e)}>Create </button>
+            <button className="btn" id="createPub" onClick={(e) => this.handleClick(e)}>Create</button>
           </div>
         </form>
         {this.state.message && <div className="info">
