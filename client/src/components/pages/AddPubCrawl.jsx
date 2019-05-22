@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import ReactDom from 'react-dom'
-import axios from 'axios';
 import Navbar from './Navbar'
 import '../../styles/pubcrawlForms.scss';
 
@@ -42,6 +40,7 @@ export default class AddPubCrawl extends Component {
     }
     api.addPubCrawl(data)
       .then(result => {
+        this.props.history.push('/profile')
         console.log('SUCCESS!')
         this.setState({
           name: "",
@@ -52,11 +51,6 @@ export default class AddPubCrawl extends Component {
           participants: "",
           message: `Your Pub Crawl '${this.state.name}' has been created`
         })
-        //setTimeout(() => {
-        //  this.setState({
-        //    message: null
-        //  })
-        //}, 2000)
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
@@ -99,7 +93,6 @@ export default class AddPubCrawl extends Component {
                 <label for="fname" className="label color-form">PubCrawl Name</label>
               </div>
               <div className="col-75">
-                {/* <input type="text" value={this.state.name} onChange={this.handleInputChange} id="fname" placeholder="Pub Crawl Name..." /> */}
                 <input className="mdl-textfield__input" id="pubName" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
               </div>
             </div>
@@ -158,27 +151,6 @@ export default class AddPubCrawl extends Component {
             {this.state.message}
           </div>}
         </div>
-
-
-        {/* <h2>Add Pub Crawl</h2> */}
-        {/* <form>  */}
-        {/* Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br /> */}
-        {/* Comments: <textarea value={this.state.comments} name="comments" cols="30" rows="10" onChange={this.handleInputChange} ></textarea> <br /> */}
-        {/* Start Date: <input type="date" value={this.state.startDate} name="startDate" onChange={this.handleInputChange} /> <br />  */}
-        {/* End Date: <input type="date" value={this.state.endDate} name="endDate" onChange={this.handleInputChange} /> <br />  */}
-        {/* Participants: <input type="number" value={this.state.participants} name="participants" onChange={this.handleInputChange} /> <br />  */}
-        {/* <hr /> */}
-        {/* <h3>Places</h3> */}
-        {/* {this.state.places.map((place,i) => <div key={i}> */}
-        {/* Pub name : <input value={place.namePub} onChange={e => this.changeNamePub(e,i)} /> <br/> */}
-        {/* Address : <input value={place.address} onChange={e => this.changeAddress(e,i)}/> <br/> */}
-        {/* <br/> */}
-        {/* </div>)} */}
-        {/* <button onClick={(e) => this.handleClick(e)}>Create Pub Crawl</button> */}
-        {/* </form> */}
-        {/* {this.state.message && <div className="info"> */}
-        {/* {this.state.message} */}
-        {/* </div>} */}
       </div>
     );
   }
