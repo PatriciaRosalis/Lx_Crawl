@@ -12,7 +12,6 @@ export default class Profile extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="Profile">
@@ -25,6 +24,8 @@ export default class Profile extends Component {
           <div className="_2container">
           <Link to={'/add-pubcrawl'} className="btns">
           New Pub Crawl</Link>
+          <Link to={'/logout'}><button onClick={(e) => this.handleClick(e)}>
+            Logout</button></Link>
           </div>
         </div>
 
@@ -73,13 +74,17 @@ export default class Profile extends Component {
     )
   }
   componentDidMount() {
-    api.getAllPubCrawlsUser()
+    if(api.isLoggedIn()){
+      api.getAllPubCrawlsUser()
       .then(pubCrawls => {
         this.setState({
           pubCrawls: pubCrawls
         })
         console.log(this.state.pubCrawls)
       })
+    } else {
+      this.props.history.push("/") 
+    }
     //   console.log(api.getLocalStorageUser())
     //   api.get/*something from api.js*/ */('http://localhost:5000/api')
     //     .then(users => {

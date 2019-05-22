@@ -40,22 +40,19 @@ export default class EditPubCrawl extends Component {
       participants: this.state.participants,
     }
     api.editPubCrawl(this.props.match.params.pubCrawlId, data )
-      .then(result => {
-        console.log('SUCCESS!')
-        this.setState({
-          name: "",
-          places: [],
-          comments: "",
-          startDate: new Date(),
-          endDate: new Date(),
-          participants: "",
-          message: `Your Pub Crawl '${this.state.name}' has been Edited`
-        })
-        //setTimeout(() => {
-        //  this.setState({
-        //    message: null
-        //  })
-        //}, 2000)
+    .then(result => {
+      console.log('SUCCESS!')
+      this.setState({
+        name: "",
+        places: [],
+        comments: "",
+        startDate: new Date(),
+        endDate: new Date(),
+        participants: "",
+        message: `Your Pub Crawl '${this.state.name}' has been Edited`
+      })
+      //this.props.history.push(`/pubcrawl-detail/`+ this.props.match.params.pubCrawlId)
+
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
