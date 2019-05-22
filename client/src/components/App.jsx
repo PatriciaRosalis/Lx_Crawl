@@ -29,7 +29,7 @@ export default class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/add-pubcrawl" component={AddPubCrawl} />
           <Route path="/pubcrawl-detail/:pubCrawlId" component={PubCrawlDetail} />
-          <Route path="/edit-pubCrawl/:pubCrawlId" component={EditPubCrawl} />
+          <Route path="/edit-pubcrawl/:pubCrawlId" component={EditPubCrawl} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />

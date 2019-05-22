@@ -37,7 +37,8 @@ router.post('/add-pubcrawl', (req, res, next) => {
     comments: req.body.comments,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
-    participants: req.body.participants
+    participants: req.body.participants,
+    _user: req.user._id
   })
     .then(response => {
       res.json(
