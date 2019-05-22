@@ -9,42 +9,64 @@ export default class PubCrawlDetail extends Component {
     this.state = {
       pubCrawl: null
     };
-    //this.mapRef = React.createRef() // NEW
-    //this.map = null // NEW
-    //this.marker = null // NEW
   }
-  //initMap(lng, lat) {
-  //  // Embed the map where "this.mapRef" is defined in the render
-  //  this.map = new mapboxgl.Map({
-  //    container: this.mapRef.current,
-  //    style: 'mapbox://styles/mapbox/streets-v11',
-  //    center: [lng, lat],
-  //    zoom: 10
-  //  })
-  //  this.map.addControl(new mapboxgl.NavigationControl())
-  //  this.marker = new mapboxgl.Marker({color: 'red'})
-  //  .setLngLat([lng,lat])
-  //  .addTo(this.map)
-  //}
+
   render() {
     if (!this.state.pubCrawl) return <div>Loading...</div>               
     return (
       
       <div className="PubCrawlDetail">
         <Navbar />
-
-        <h1>{this.state.pubCrawl.name}</h1>
-        <p><strong>Comments:</strong>{this.state.pubCrawl.comments}</p>
-        <p><strong>Start Date:</strong>{this.state.pubCrawl.startDate}</p>
-        <p><strong>End Date:</strong>{this.state.pubCrawl.endDate}</p>
-        <p><strong>Participants:</strong>{this.state.pubCrawl.participants}</p>
-        <hr />
+        <br />
+        <h1>Pub Crawl Details</h1>
+        <br />
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">PubCrawl Name:</th>
+              <th colspan="3">{this.state.pubCrawl.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Comments:</th>
+              <td>{this.state.pubCrawl.comments}</td>
+            </tr>
+            <tr>
+              <th scope="row">Start Date:</th>
+              <td>{this.state.pubCrawl.startDate}</td>
+            </tr>
+            <tr>
+              <th scope="row">End Date:</th>
+              <td colspan="3">{this.state.pubCrawl.endDate}</td>
+            </tr>
+            <tr>
+              <th scope="row">Participants:</th>
+              <td colspan="3">{this.state.pubCrawl.participants}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
         <h2>Places</h2>
-        {this.state.pubCrawl.places.map((place,i) => <div key={i}>
-          <p value={place.namePub}><strong>Pub name:</strong> {place.namePub}</p><br/>
-          <p value={place.address}><strong>Address:</strong>{place.address}</p><br/>
-            <br/>
-          </div>)}
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.state.pubCrawl.places.map((place,i) => <td key={i}> 
+              <tr>
+                <th scope="row">Pub name:</th>
+                <td value={place.namePub}>{place.namePub}</td>
+              </tr>
+              <tr>
+                <th scope="row">Address:</th>
+                <td value={place.address}>{place.address}</td>
+              </tr>
+            </td>)}
+          </tbody>
+        </table>
       </div>
     );
   }
