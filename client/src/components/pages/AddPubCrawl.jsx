@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import ReactDom from 'react-dom'
-import axios from 'axios';
 import Navbar from './Navbar'
 import '../../styles/pubcrawlForms.scss';
 
@@ -42,6 +40,7 @@ export default class AddPubCrawl extends Component {
     }
     api.addPubCrawl(data)
       .then(result => {
+        this.props.history.push('/profile')
         console.log('SUCCESS!')
         this.setState({
           name: "",
@@ -52,11 +51,6 @@ export default class AddPubCrawl extends Component {
           participants: "",
           message: `Your Pub Crawl '${this.state.name}' has been created`
         })
-        //setTimeout(() => {
-        //  this.setState({
-        //    message: null
-        //  })
-        //}, 2000)
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
