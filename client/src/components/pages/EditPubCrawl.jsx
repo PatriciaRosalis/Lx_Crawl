@@ -51,10 +51,9 @@ export default class EditPubCrawl extends Component {
         participants: "",
         message: `Your Pub Crawl '${this.state.name}' has been Edited`
       })
-      //this.props.history.push(`/pubcrawl-detail/`+ this.props.match.params.pubCrawlId)
-
-      })
-      .catch(err => this.setState({ message: err.toString() }))
+      this.props.history.push(`/pubcrawl-detail/`+ this.props.match.params.pubCrawlId)
+    })
+    .catch(err => this.setState({ message: err.toString() }))
   }
   changeNamePub(e, i) {
     let copyPlaces = [...this.state.places] // Create a copy of the state
