@@ -9,8 +9,7 @@ export default class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: [],
-      pubCrawls: []
+      user: []
     }
   }
 
@@ -19,16 +18,15 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="Profile">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="_container">
           <div className="_1container">
             <img className="img" src="../beer.svg" alt="" />
             { api.getLocalStorageUser() && <h4>{api.getLocalStorageUser().username}</h4>} 
           </div>
           <div className="_2container">
-            <h5>My Routes</h5>
-              <p>Lorem ipsum <Link to="/:pubCrawlId"><button className="btn">REUSE</button></Link></p>
-              <p>Lorem ipsum <Link to="/:pubCrawlId"><button className="btn">REUSE</button></Link></p>
+          <Link to={'/add-pubcrawl'}><button>
+          New Pub Crawl</button></Link>
           </div>
         </div>
 
@@ -37,7 +35,7 @@ export default class Profile extends Component {
         <div className="_3container">
           <div>
             
-            <h4>Upcoming Pub Crawls</h4>
+            <h4>My Pub Crawls</h4>
             {this.state.pubCrawls && this.state.pubCrawls.map(oneCrawl => 
               <div key={oneCrawl._id}>
 

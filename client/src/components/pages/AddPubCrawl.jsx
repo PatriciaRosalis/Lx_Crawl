@@ -136,7 +136,7 @@ export default class AddPubCrawl extends Component {
               </div>
             </div>
             <div className="space ">
-            <h4>Places</h4>
+            <h4>Places</h4> 
               {this.state.places.map((place, i) => <div key={i}>
                 <div className="col-25">
                   <label className="mdl-textfield__label " for="pubname" className="label color-form" >Pub Name</label>
