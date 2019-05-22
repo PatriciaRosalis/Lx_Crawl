@@ -37,11 +37,11 @@ export default class Login extends Component {
         <form action="#" className="form">
           <div className="mdl-textfield mdl-js-textfield form-input">
           <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
-          <label className="mdl-textfield__label" for="username">Username</label>
+          <label className="mdl-textfield__label" htmlFor="username">Username</label>
           </div>
           <div className="mdl-textfield mdl-js-textfield">
           <input className="mdl-textfield__input" type="password"  value={this.state.password} name="password" onChange={this.handleInputChange} /> 
-          <label className="mdl-textfield__label" for="password">Password</label>
+          <label className="mdl-textfield__label" htmlFor="password">Password</label>
          </div> 
           <button className="mdl-button mdl-js-button mdl-button--accent log-btn  " onClick={this.handleClick}>Login</button>
         </form>

@@ -90,13 +90,13 @@ export default class AddPubCrawl extends Component {
     return (
       <div className="AddPubCrawl">
         <br />
-        {/* <Navbar />  */}
+        <Navbar /> 
         <h2>Add Pub Crawl</h2>
         <div className="containerAddPub">
           <form action="action_page.php" className="form-act">
             <div className="space">
               <div className="col-25">
-                <label for="fname" className="label color-form">PubCrawl Name</label>
+                <label htmlFor="fname" className="label color-form">PubCrawl Name</label>
               </div>
               <div className="col-75">
                 {/* <input type="text" value={this.state.name} onChange={this.handleInputChange} id="fname" placeholder="Pub Crawl Name..." /> */}
@@ -105,7 +105,7 @@ export default class AddPubCrawl extends Component {
             </div>
             <div className="space">
               <div className="col-25">
-                <label for="sdate" className="label color-form">Start Date</label>
+                <label htmlFor="sdate" className="label color-form">Start Date</label>
               </div>
               <div className="col-75">
                 <input className="mdl-textfield__input" id="sdate" name="startDate" type="date" value={this.state.startDate} onChange={this.handleInputChange} />
@@ -113,7 +113,7 @@ export default class AddPubCrawl extends Component {
             </div>
             <div className="space">
               <div className="col-25">
-                <label for="edate" className="label color-form">End Date</label>
+                <label htmlFor="edate" className="label color-form">End Date</label>
               </div>
               <div className="col-75">
                 <input className="mdl-textfield__input" id="edate" name="endDate" type="date" value={this.state.endDate} onChange={this.handleInputChange} />
@@ -121,7 +121,7 @@ export default class AddPubCrawl extends Component {
             </div>
             <div className="space">
               <div className="col-25">
-                <label for="participant" className="label color-form">Participant:</label>
+                <label htmlFor="participant" className="label color-form">Participant:</label>
               </div>
               <div className="col-75">
                 <input className="mdl-textfield__input" id="participant" type="number" value={this.state.participants} name="participants" onChange={this.handleInputChange} />
@@ -129,7 +129,7 @@ export default class AddPubCrawl extends Component {
             </div>
             <div className="space">
               <div className="col-25">
-                <label for="comments" className="label color-form">Comments</label>
+                <label htmlFor="comments" className="label color-form">Comments</label>
               </div>
               <div className="col-75">
                 <textarea id="comments" name="comments" placeholder="Comments" value={this.state.comments} /*name="comments"*/ cols="40" rows="3" onChange={this.handleInputChange}></textarea>
@@ -139,13 +139,13 @@ export default class AddPubCrawl extends Component {
             <h4>Places</h4>
               {this.state.places.map((place, i) => <div key={i}>
                 <div className="col-25">
-                  <label className="mdl-textfield__label " for="pubname" className="label color-form" >Pub Name</label>
+                  <label className="mdl-textfield__label " htmlFor="pubname" className="label color-form" >Pub Name</label>
                 </div>
                 <div className="col-75">
                   <input className="mdl-textfield__input" value={place.namePub} onChange={e => this.changeNamePub(e, i)} />
                 </div>
                 <div className="col-25">
-                  <label className="mdl-textfield__label" for="address" className="label color-form " >Address </label>
+                  <label className="mdl-textfield__label" htmlFor="address" className="label color-form " >Address </label>
                 </div>
                 <div className="col-75">
                   <input className="mdl-textfield__input" value={place.address} onChange={e => this.changeAddress(e, i)} />
