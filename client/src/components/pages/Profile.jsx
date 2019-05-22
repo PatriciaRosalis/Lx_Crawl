@@ -12,6 +12,22 @@ export default class Profile extends Component {
     }
   }
 
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleLogout(e) {
+    e.preventDefault()
+    api.logout()
+      .then(result => {
+        console.log('SUCCESS!')
+        this.props.history.push("/") // Redirect to the home page
+      })
+      .catch(err => this.setState({ message: err.toString() }))
+  }
+
   render() {
     return (
       <div className="Profile">
@@ -24,8 +40,9 @@ export default class Profile extends Component {
           <div className="_2container">
           <Link to={'/add-pubcrawl'} className="btns">
           New Pub Crawl</Link>
-          <Link to={'/logout'}><button onClick={(e) => this.handleClick(e)}>
-            Logout</button></Link>
+          <br />
+          <button className="btns" onClick={(e) => this.handleLogout(e)}>
+            Logout</button>
           </div>
         </div>
 
