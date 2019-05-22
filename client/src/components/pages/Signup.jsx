@@ -43,17 +43,17 @@ export default class Signup extends Component {
         <form action="#" className="form">
           <div class=" mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> 
-            <label class="mdl-textfield__label" for="username">Username</label>
+            <label class="mdl-textfield__label" htmlFor="username">Username</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> 
-            <label class="mdl-textfield__label" for="name">Name</label>
+            <label class="mdl-textfield__label" htmlFor="name">Name</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield">
             <input className="mdl-textfield__input" type="password" value={this.state.password} name="password" onChange={this.handleInputChange} />
-            <label class="mdl-textfield__label" for="password">Password</label>
+            <label class="mdl-textfield__label" htmlFor="password">Password</label>
           </div>
-          <button className="log-btn mdl-button mdl-js-button mdl-button--accent" onClick={(e) => this.handleClick(e)}>Signup</button>
+          <button variant="contained" color="primary"  onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}
