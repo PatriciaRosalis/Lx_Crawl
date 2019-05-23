@@ -18,8 +18,6 @@ export default class AddPubCrawl extends Component {
       message: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
-    //this.changeNamePub = this.changeNamePub.bind(this)
-     //this.changeAddress = this.changeAddress.bind(this)
   }
 
   handleInputChange(event) {
@@ -33,7 +31,7 @@ export default class AddPubCrawl extends Component {
     console.log(this.state.name)
     let data = {
       name: this.state.name,
-      places: this.state.places,
+      places: this.state.places.filter(place => place.namePub.length > 0),
       comments: this.state.comments,
       startDate: this.state.startDate,
       endDate: this.state.endDate,
@@ -55,39 +53,20 @@ export default class AddPubCrawl extends Component {
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
-  // changeNamePub(e, i) {
-  //   let copyPlaces = [...this.state.places] // Create a copy of the state
-  //   console.log("HEEEEELLLOOOOOOSSS",copyPlaces)
-  //   copyPlaces[i].namePub = e.target.value // Change the value at position i
-  //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
-  //     copyPlaces.push({
-  //       namePub: "",
-  //       address: ""
-  //     })
-  //   }
-  //   this.setState({
-  //     places: copyPlaces
-  //   })
-  // }
-  // changeAddress(e, i) {
-  //   let copyPlaces = [...this.state.places] // Create a copy of the state
-  //   copyPlaces[i].address = e.target.value // Change the value at position i
-  //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
-  //     copyPlaces.push({
-  //       namePub: "",
-  //       address: ""
-  //     })
-  //   }
-  //   this.setState({
-  //     places: copyPlaces
-  //   })
-  // }
 
-  handleLocation = (place) => {
-    console.log("PPLLAAAAAAACCEEE",place)
-    let newPlace = {namePub: place.text, address: place.place_name }
+  handleLocation = (place,i) => {
+    let copyPlaces = [...this.state.places] // Create a copy of the state
+
+    copyPlaces[i].namePub = place.text // Change the value at position i
+    copyPlaces[i].address = place.place_name // Change the value at position i
+    if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
+      copyPlaces.push({
+        namePub: "",
+        address: ""
+      })
+    }
     this.setState({
-      places : [...this.state.places, newPlace]
+      places: copyPlaces
     })
   }
   render() {
@@ -117,17 +96,12 @@ export default class AddPubCrawl extends Component {
               <label htmlFor="comments" className="mdl-textfield__label" className="color-form">Comments</label>
               <textarea className="form-control" id="comments" name="comments" placeholder="Comments" value={this.state.comments} /*name="comments"*/ cols="40" rows="3" onChange={this.handleInputChange} ></textarea >
             </div>
-            <h4>Places</h4>
-
+            <h4>Places ({this.state.places.length})</h4>
             {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
               <div>
                 <label htmlFor="namePub" className="mdl-textfield__label" className="label color-form">Pub Name</label>
-                <AutocompletePlace onSelect={this.handleLocation} className="mdl-textfield__input form-control" value={place.namePub} />
+                <AutocompletePlace onSelect={place => this.handleLocation(place,i)} className="mdl-textfield__input form-control" value={place.namePub} />
               </div>
-              {/* <div className="">
-                 <label className="mdl-textfield__label" htmlFor="address" className="label color-form">Address </label> 
-                 <AutocompletePlace onSelect={place => this.handleLocation(place.address)} className="mdl-textfield__input form-control" value={place.address} onChange={e => this.changeAddress(e, i)}  />
-                </div> */}
               </div>)} 
             <button className="btn" id="createPub" onClick={(e) => this.handleClick(e)}>Create</button>
           </div>

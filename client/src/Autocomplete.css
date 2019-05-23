@@ -4,6 +4,7 @@
 
 .AutocompletePlace-results {
   position: absolute;
+  z-index: 100;
   background-color: black;
   padding: 0;
   margin: 0;

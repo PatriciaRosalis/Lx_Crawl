@@ -6,7 +6,7 @@ export default class AutocompletePlace extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: '',
+      search: this.props.initialValue,
       results: [],
       isLoading: false,
     }
@@ -54,13 +54,6 @@ export default class AutocompletePlace extends Component {
     this.props.onSelect(place)
   }
 
-  // handleItemChanged(e, i) {
-  //   // this.setState({
-  //   //   search: place.place_name,
-  //   //   results: []
-  //   // })
-  //   this.props.onChange(e, i)
-  // }
   render() {
     return (
       <div className="AutocompletePlace">
@@ -71,7 +64,6 @@ export default class AutocompletePlace extends Component {
               key={place.id}
               className="AutocompletePlace-items"
               onClick={() => this.handleItemClicked(place)}
-              // onChange={(e, i) => this.handleItemChanged(e, i)}
             >
               {place.place_name}
             </li>
