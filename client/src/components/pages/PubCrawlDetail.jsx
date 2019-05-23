@@ -30,7 +30,6 @@ export default class PubCrawlDetail extends Component {
             <p className="black-color">{this.state.pubCrawl.startDate}</p>
             <h5 className="color-form" scope="row">End Date:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.endDate}</p>
-            {/* </div> */}
             <h5 className="color-form" scope="row">Participants:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.participants}</p>
           </div>
