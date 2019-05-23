@@ -9,8 +9,8 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    user: []
-  }
+      user: []
+    }
   }
   handleInputChange(event) {
     this.setState({
@@ -77,14 +77,15 @@ export default class Profile extends Component {
                     <div className="card-body edit-profile-icon">
                       <h5 className="card-title ">{oneCrawl.name}</h5>
                       <p className="card-text">{oneCrawl.startDate}</p>
-                      <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns">Edit</Link>
-                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns"> View Details</Link>
+                      <div className="profile-social ">
+                        <WhatsappShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} className="button"><WhatsappIcon size={32} round /></WhatsappShareButton>
+                        <FacebookShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} quote={"title"} className="Demo_some_network_share-button"><FacebookIcon size={32} round /></FacebookShareButton>
+                        <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} quote={"title"} className="Demo_some_network_share-button"><EmailIcon size={32} round /></EmailShareButton>
+                        <br />
+                      </div>
+                      <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg">Edit</Link>
+                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns textalg"> View Details</Link>
                       <button className="btns" onClick={() => this.handleClick(oneCrawl._id)}>Delete</button>
-                      <FacebookShareButton url={"shareUrl"} quote={"title"} className="Demo_some_network_share-button">
-                        <FacebookIcon size={32} round />
-                      </FacebookShareButton>
-                      <WhatsappShareButton url={"shareUrl"} quote={"title"} className="Demo_some_network_share-button"><WhatsappIcon size={32} round /></WhatsappShareButton>
-                      <EmailShareButton url={"shareUrl"} quote={"title"} className="Demo_some_network_share-button"><EmailIcon size={32} round /></EmailShareButton>
                     </div>
                   </div>
                 </div>
