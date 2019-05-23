@@ -35,7 +35,7 @@ export default class PubCrawlDetail extends Component {
 
         <h1>{this.state.pubCrawl.name}</h1>
         <p><strong>Comments:</strong>{this.state.pubCrawl.comments}</p>
-        <p><strong>Start Date:</strong>{this.state.pubCrawl.startDate}</p>
+        <p><strong>Start Date:</strong>{this.state.pubCrawl.startDate.toDateString()}</p>
         <p><strong>End Date:</strong>{this.state.pubCrawl.endDate}</p>
         <p><strong>Participants:</strong>{this.state.pubCrawl.participants}</p>
         <hr />
