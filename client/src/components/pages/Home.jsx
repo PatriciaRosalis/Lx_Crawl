@@ -14,7 +14,6 @@ export default class Home extends Component {
           <img src="../test.png" alt="bcg" />
           <Link to="/login"><button type="button" className="btn btn-outline" >Login</button></Link>
           <Link to="/signup"><button type="button" className="btn btn-outline" >Sign Up</button></Link>
-          <Link className="about" to="/about" >About Us</Link>
       </div>  
     );
   }

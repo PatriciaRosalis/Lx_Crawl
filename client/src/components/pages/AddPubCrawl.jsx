@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+import AutocompletePlace from "../../Autocomplete";
 import '../../styles/pubcrawlForms.scss';
 
 
@@ -17,8 +18,8 @@ export default class AddPubCrawl extends Component {
       message: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.changeNamePub = this.changeNamePub.bind(this)
-    this.changeAddress = this.changeAddress.bind(this)
+    // this.changeNamePub = this.changeNamePub.bind(this)
+    // this.changeAddress = this.changeAddress.bind(this)
   }
 
   handleInputChange(event) {
@@ -29,7 +30,7 @@ export default class AddPubCrawl extends Component {
 
   handleClick(e) {
     e.preventDefault()
-    console.log(this.state.name, this.state.description)
+    console.log(this.state.name)
     let data = {
       name: this.state.name,
       places: this.state.places,
@@ -42,6 +43,7 @@ export default class AddPubCrawl extends Component {
       .then(result => {
         this.props.history.push('/profile')
         console.log('SUCCESS!')
+        console.log("RESULT",result)
         this.setState({
           name: "",
           places: [],
@@ -54,33 +56,36 @@ export default class AddPubCrawl extends Component {
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
+  // changeNamePub(e, i) {
+  //   let copyPlaces = [...this.state.places] // Create a copy of the state
+  //   copyPlaces[i].namePub = e.target.value // Change the value at position i
+  //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
+  //     copyPlaces.push({
+  //       namePub: "",
+  //       address: ""
+  //     })
+  //   }
+  //   this.setState({
+  //     places: copyPlaces
+  //   })
+  // }
+  // changeAddress(e, i) {
+  //   let copyPlaces = [...this.state.places] // Create a copy of the state
+  //   copyPlaces[i].address = e.target.value // Change the value at position i
+  //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
+  //     copyPlaces.push({
+  //       namePub: "",
+  //       address: ""
+  //     })
+  //   }
+  //   this.setState({
+  //     places: copyPlaces
+  //   })
+  // }
 
-
-  changeNamePub(e, i) {
-    let copyPlaces = [...this.state.places] // Create a copy of the state
-    copyPlaces[i].namePub = e.target.value // Change the value at position i
-    if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
-      copyPlaces.push({
-        namePub: "",
-        address: ""
-      })
-    }
-    this.setState({
-      places: copyPlaces
-    })
-  }
-  changeAddress(e, i) {
-    let copyPlaces = [...this.state.places] // Create a copy of the state
-    copyPlaces[i].address = e.target.value // Change the value at position i
-    if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
-      copyPlaces.push({
-        namePub: "",
-        address: ""
-      })
-    }
-    this.setState({
-      places: copyPlaces
-    })
+  handleLocation = (place) => {
+    console.log(place)
+    this.state.places.push({namePub: place.text, address: place.properties.address})
   }
   render() {
     return (
@@ -114,13 +119,13 @@ export default class AddPubCrawl extends Component {
             {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
               <div className="">
                 <label className="mdl-textfield__label" htmlFor="pubname" className="label color-form">Pub Name</label>
-                <input className="mdl-textfield__input form-control" value={place.namePub} onChange={e => this.changeNamePub(e, i)} />
+                <AutocompletePlace onSelect={place => this.handleLocation(place)} className="mdl-textfield__input form-control" value={place.namePub} /*onChange={e => this.changeNamePub(e, i)}*/ />
               </div>
-              <div className="">
-                <label className="mdl-textfield__label" htmlFor="address" className="label color-form">Address </label>
-                <input className="mdl-textfield__input form-control" value={place.address} onChange={e => this.changeAddress(e, i)} />
-              </div>
-            </div>)}
+              {/* <div className="">
+                 <label className="mdl-textfield__label" htmlFor="address" className="label color-form">Address </label> 
+                 <AutocompletePlace onSelect={place => this.handleLocation(place.address)} className="mdl-textfield__input form-control" value={place.address} onChange={e => this.changeAddress(e, i)}  />
+                </div> */}
+              </div>)} 
             <button className="btn" id="createPub" onClick={(e) => this.handleClick(e)}>Create</button>
           </div>
         </form>
