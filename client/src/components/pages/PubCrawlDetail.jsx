@@ -43,6 +43,7 @@ export default class PubCrawlDetail extends Component {
               <p className="black-color" value={place.namePub}>{place.namePub}</p>
               <h5 className="color-form" scope="row">Address:</h5>
               <p className="black-color" value={place.address}>{place.address}</p>
+              <hr/>
             </p>)}
           </div >
         </div>
