@@ -37,7 +37,7 @@ export default class PubCrawlDetail extends Component {
           <div className="card-body  pub-detail">
             <h3 className="black-color">Places/ Routes </h3>
             <br/> 
-            <h5 scope="col"></h5>
+            <h5 scope="col"></h5> 
             {this.state.pubCrawl.places.map((place, i) => <p className="" key={i}>
               <h5 className="color-form" scope="row">Pub name:</h5>
               <p className="black-color" value={place.namePub}>{place.namePub}</p>

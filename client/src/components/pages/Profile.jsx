@@ -85,7 +85,7 @@ export default class Profile extends Component {
                         <br />
                       </div>
                       <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg">Edit</Link>
-                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns textalg"> View Details</Link>
+                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns text-alg"> View Details</Link>
                       <button className="btns" onClick={() => this.handleClick(oneCrawl._id)}>Delete</button>
                     </div>
                   </div>
