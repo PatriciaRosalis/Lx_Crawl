@@ -53,16 +53,25 @@ export default class AutocompletePlace extends Component {
     })
     this.props.onSelect(place)
   }
+
+  // handleItemChanged(e, i) {
+  //   // this.setState({
+  //   //   search: place.place_name,
+  //   //   results: []
+  //   // })
+  //   this.props.onChange(e, i)
+  // }
   render() {
     return (
       <div className="AutocompletePlace">
-        <input className="AutocompletePlace-input" type="text" value={this.state.search} onChange={this.handleSearchChange} placeholder="Type an address" />
+        <input className="mdl-textfield__input form-control" type="text" value={this.state.search} onChange={this.handleSearchChange} placeholder="Type an address" />
         <ul className="AutocompletePlace-results">
           {this.state.results.map(place => (
             <li
               key={place.id}
               className="AutocompletePlace-items"
               onClick={() => this.handleItemClicked(place)}
+              // onChange={(e, i) => this.handleItemChanged(e, i)}
             >
               {place.place_name}
             </li>

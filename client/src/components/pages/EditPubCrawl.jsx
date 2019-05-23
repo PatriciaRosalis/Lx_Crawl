@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
 import Navbar from './Navbar'
+import AutocompletePlace from "../../Autocomplete";
 
 export default class EditPubCrawl extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class EditPubCrawl extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.changeNamePub = this.changeNamePub.bind(this)
-    this.changeAddress = this.changeAddress.bind(this)
+    //this.changeAddress = this.changeAddress.bind(this)
   }
 
   handleInputChange(event) {
@@ -68,19 +69,19 @@ export default class EditPubCrawl extends Component {
       places: copyPlaces
     })
   }
-  changeAddress(e, i) {
-    let copyPlaces = [...this.state.places] // Create a copy of the state
-    copyPlaces[i].address = e.target.value // Change the value at position i
-    if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
-      copyPlaces.push({
-        namePub: "",
-        address: ""
-      })
-    }
-    this.setState({
-      places: copyPlaces
-    })
-  }
+  // changeAddress(e, i) {
+  //   let copyPlaces = [...this.state.places] // Create a copy of the state
+  //   copyPlaces[i].address = e.target.value // Change the value at position i
+  //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
+  //     copyPlaces.push({
+  //       namePub: "",
+  //       address: ""
+  //     })
+  //   }
+  //   this.setState({
+  //     places: copyPlaces
+  //   })
+  // }
   render() {
     return (
       <div className="EditPubCrawl">
@@ -115,10 +116,10 @@ export default class EditPubCrawl extends Component {
               <label className="mdl-textfield__label" htmlFor="participants" className="label color-form">Pub name:</label>
               <input className="mdl-textfield__input form-control"  value={place.namePub} onChange={e => this.changeNamePub(e, i)} /> <br />
             </div>
-            <div className="">
+            {/* <div className="">
               <label className="mdl-textfield__label" htmlFor="address" className="label color-form"> Address:</label>
               <input className="mdl-textfield__input form-control" value={place.address} onChange={e => this.changeAddress(e, i)} /> <br />
-            </div>
+            </div> */}
           </div>)}
           <button className="btns" onClick={(e) => this.handleClick(e)}>Edit Pub Crawl</button>
           </div>

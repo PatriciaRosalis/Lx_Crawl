@@ -18,8 +18,8 @@ export default class AddPubCrawl extends Component {
       message: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
-    // this.changeNamePub = this.changeNamePub.bind(this)
-    // this.changeAddress = this.changeAddress.bind(this)
+    //this.changeNamePub = this.changeNamePub.bind(this)
+     //this.changeAddress = this.changeAddress.bind(this)
   }
 
   handleInputChange(event) {
@@ -43,7 +43,6 @@ export default class AddPubCrawl extends Component {
       .then(result => {
         this.props.history.push('/profile')
         console.log('SUCCESS!')
-        console.log("RESULT",result)
         this.setState({
           name: "",
           places: [],
@@ -58,6 +57,7 @@ export default class AddPubCrawl extends Component {
   }
   // changeNamePub(e, i) {
   //   let copyPlaces = [...this.state.places] // Create a copy of the state
+  //   console.log("HEEEEELLLOOOOOOSSS",copyPlaces)
   //   copyPlaces[i].namePub = e.target.value // Change the value at position i
   //   if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
   //     copyPlaces.push({
@@ -84,8 +84,11 @@ export default class AddPubCrawl extends Component {
   // }
 
   handleLocation = (place) => {
-    console.log(place)
-    this.state.places.push({namePub: place.text, address: place.properties.address})
+    console.log("PPLLAAAAAAACCEEE",place)
+    let newPlace = {namePub: place.text, address: place.place_name }
+    this.setState({
+      places : [...this.state.places, newPlace]
+    })
   }
   render() {
     return (
@@ -96,14 +99,14 @@ export default class AddPubCrawl extends Component {
           <div className="form-row form-act">
             <div className="form-group col-sm-6 col-25">
               <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">PubCrawl Name</label>
-              <input className="mdl-textfield__input form-control" id="pubName" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
+              <input className="mdl-textfield__input form-control" id="name" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
             </div>
             <div className="form-group col-md-6">
               <label htmlFor="sdate" className="mdl-textfield__label" className="color-form ">Start Date</label>
               <input className="mdl-textfield__input form-control" id="sdate" name="startDate" type="date" value={this.state.startDate} onChange={this.handleInputChange} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFo r="eDate" className="mdl-textfield__label" className="color-form">End Date</label>
+              <label htmlFor="eDate" className="mdl-textfield__label" className="color-form">End Date</label>
               <input className="mdl-textfield__input form-control" id="edate" name="endDate" type="date" value={this.state.endDate} onChange={this.handleInputChange} />
             </div>
             <div className="form-group col-md-6">
@@ -117,9 +120,9 @@ export default class AddPubCrawl extends Component {
             <h4>Places</h4>
 
             {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
-              <div className="">
-                <label className="mdl-textfield__label" htmlFor="pubname" className="label color-form">Pub Name</label>
-                <AutocompletePlace onSelect={place => this.handleLocation(place)} className="mdl-textfield__input form-control" value={place.namePub} /*onChange={e => this.changeNamePub(e, i)}*/ />
+              <div>
+                <label htmlFor="namePub" className="mdl-textfield__label" className="label color-form">Pub Name</label>
+                <AutocompletePlace onSelect={this.handleLocation} className="mdl-textfield__input form-control" value={place.namePub} />
               </div>
               {/* <div className="">
                  <label className="mdl-textfield__label" htmlFor="address" className="label color-form">Address </label> 
