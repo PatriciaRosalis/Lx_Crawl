@@ -18,9 +18,9 @@ export default class PubCrawlDetail extends Component {
       <div className="PubCrawlDetail">
         <Navbar />
         <br />
-        <h1>Pub Crawl Details</h1>
+        <h1 className="pubdet-table">Pub Crawl Details</h1>
         <br />
-        <table className="table table-hover table-light">
+        <table className="table table-hover table-light pubdet-table">
           <thead>
             <tr>
               <th scope="col">PubCrawl Name:</th>
@@ -47,8 +47,8 @@ export default class PubCrawlDetail extends Component {
           </tbody>
         </table>
         <br />
-        <h2>Places</h2>
-        <table className="table table-hover table-light">
+        <h2 className="pubdet-table">Places</h2>
+        <table className="table table-hover table-light pubdet-table">
           <thead>
             <tr>
               <td scope="col"></td>
