@@ -54,6 +54,8 @@ export default class AddPubCrawl extends Component {
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
+
+
   changeNamePub(e, i) {
     let copyPlaces = [...this.state.places] // Create a copy of the state
     copyPlaces[i].namePub = e.target.value // Change the value at position i
@@ -108,8 +110,6 @@ export default class AddPubCrawl extends Component {
               <textarea className="form-control" id="comments" name="comments" placeholder="Comments" value={this.state.comments} /*name="comments"*/ cols="40" rows="3" onChange={this.handleInputChange} ></textarea >
             </div>
             <h4>Places</h4>
-
-            <button className="btn" id="createPub" onClick={(e) => this.handleClick(e)}>+</button>
 
             {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
               <div className="">

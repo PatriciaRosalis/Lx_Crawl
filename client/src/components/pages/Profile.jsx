@@ -51,7 +51,7 @@ export default class Profile extends Component {
         <Navbar />
         <div className="_container">
           <div className="_1container">
-            <img className="img" src="../beer.svg" alt="" />
+            <img className="img" src="../dgvg.svg" alt="" />
             {api.getLocalStorageUser() && <h4>{api.getLocalStorageUser().username}</h4>}
           </div>
           <div className="_2container">
@@ -73,6 +73,7 @@ export default class Profile extends Component {
               <div key={oneCrawl._id}>
 
                 <div className="card cards" style={{ width: "18rem" }}>
+                  <img src="..." className="card-img-top" alt="..."/>
                   <div className="card-body">
                     <h5 className="card-title ">{oneCrawl.name}</h5>
                     <p className="card-text">{oneCrawl.startDate}</p>
