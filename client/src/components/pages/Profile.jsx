@@ -52,7 +52,7 @@ export default class Profile extends Component {
           <Navbar />
           <div className="_container">
             <div className="_1container">
-              <img className="img" src="../beer.svg" alt="" />
+              <img className="img" src="../dgvg.svg" alt="" />
               {api.getLocalStorageUser() && (
                 <h4>{api.getLocalStorageUser().username}</h4>
               )}
