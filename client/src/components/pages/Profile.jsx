@@ -58,11 +58,11 @@ export default class Profile extends Component {
               )}
             </div>
             <div className="_2container">
-              <Link to={"/add-pubcrawl"} className="btns">
+              <Link to={"/add-pubcrawl"} className="button-profile">
                 New Pub Crawl
               </Link>
               <br />
-              <button className="btns" onClick={e => this.handleLogout(e)}>
+              <button className="button-profile" onClick={e => this.handleLogout(e)}>
                 Logout
               </button>
             </div>
@@ -82,9 +82,9 @@ export default class Profile extends Component {
                       <h5 className="card-title ">{oneCrawl.name}</h5>
                       <p className="card-text">{oneCrawl.startDate}</p>
                       <div className="profile-social ">
-                        <WhatsappShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><WhatsappIcon size={32} round /></WhatsappShareButton>
-                        <FacebookShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><FacebookIcon size={32} round /></FacebookShareButton>
-                        <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><EmailIcon size={32} round /></EmailShareButton>
+                        <WhatsappShareButton className="padding-social" url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`}  title={oneCrawl.name} ><WhatsappIcon size={32} round /></WhatsappShareButton>
+                        <FacebookShareButton className="padding-social" url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`}  quote={oneCrawl.name} ><FacebookIcon size={32} round /></FacebookShareButton>
+                        <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} className="pr-10" title={oneCrawl.name} ><EmailIcon  size={32} round /></EmailShareButton>
                         <br />
                       </div>
                       <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg">Edit</Link>
