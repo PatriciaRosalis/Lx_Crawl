@@ -1,5 +1,7 @@
 const express = require('express');
 const PubCrawl = require('../models/PubCrawl')
+const { isLoggedIn } = require('../middlewares')
+
 
 const router = express.Router();
 
@@ -80,6 +82,27 @@ router.put('/:pubCrawlId', (req, res, next) => {
       res.json(pubCrawl)
     })
     .catch(next)
+})
+
+router.delete('/:pubCrawlId', isLoggedIn,(req,res,next) =>{
+  PubCrawl.findById(req.params.pubCrawlId)
+    .then(pubCrawl=>{ 
+      if(pubCrawl._user.equals(req.user._id)){
+        PubCrawl.findByIdAndRemove(req.params.pubCrawlId)
+          .then(() => {
+            res.json({ message: `Project with ${req.params.pubCrawlId} is removed successfully.` });
+          })
+          .catch( err => {
+            res.json(err);
+          })
+      }
+      else{
+        res.json({message: "You're Not authorized"})
+      }
+    })
+    .catch( err => {
+      res.json(err);
+    })
 })
 
 module.exports = router;
