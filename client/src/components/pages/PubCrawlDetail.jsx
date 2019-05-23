@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api.js';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+import JoinBtn from './JoinBtn';
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 
 export default class PubCrawlDetail extends Component {
@@ -21,6 +22,7 @@ export default class PubCrawlDetail extends Component {
         <div className="card">
           <div className="card-body pub-detail" >
             <h3 className="black-color">Pub Crawl Details</h3>
+            <JoinBtn/>
             <br/>
             <h5 className="color-form" scope="col">PubCrawl Name:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.name}</p>
@@ -37,7 +39,7 @@ export default class PubCrawlDetail extends Component {
           <div className="card-body  pub-detail">
             <h3 className="black-color">Places/ Routes </h3>
             <br/> 
-            <h5 scope="col"></h5>
+            <h5 scope="col"></h5> 
             {this.state.pubCrawl.places.map((place, i) => <p className="" key={i}>
               <h5 className="color-form" scope="row">Pub name:</h5>
               <p className="black-color" value={place.namePub}>{place.namePub}</p>
