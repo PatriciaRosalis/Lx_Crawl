@@ -70,6 +70,7 @@ export default class Profile extends Component {
         <div className="_3container">
           <div>
             <h4>My Pub Crawls</h4>
+
             {this.state.pubCrawls &&
               this.state.pubCrawls.map(oneCrawl => (
                 <div key={oneCrawl._id}>
@@ -78,9 +79,9 @@ export default class Profile extends Component {
                       <h5 className="card-title ">{oneCrawl.name}</h5>
                       <p className="card-text">{oneCrawl.startDate}</p>
                       <div className="profile-social ">
-                        <WhatsappShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} className="button"><WhatsappIcon size={32} round /></WhatsappShareButton>
-                        <FacebookShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} quote={"title"} className="Demo_some_network_share-button"><FacebookIcon size={32} round /></FacebookShareButton>
-                        <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} quote={"title"} className="Demo_some_network_share-button"><EmailIcon size={32} round /></EmailShareButton>
+                        <WhatsappShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><WhatsappIcon size={32} round /></WhatsappShareButton>
+                        <FacebookShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><FacebookIcon size={32} round /></FacebookShareButton>
+                        <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><EmailIcon size={32} round /></EmailShareButton>
                         <br />
                       </div>
                       <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg">Edit</Link>

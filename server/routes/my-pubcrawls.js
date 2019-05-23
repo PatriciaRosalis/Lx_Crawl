@@ -4,7 +4,8 @@ const { isLoggedIn } = require('../middlewares')
 const router = express.Router();
 
 // Route protected for logged in user
-router.get('/my-pubcrawls', isLoggedIn, (req, res, next) => {
+// isLoggedIn, 
+router.get('/my-pubcrawls', (req, res, next) => {
   PubCrawl.find({_user: req.user._id}) 
     .then(response => {
       res.json(response);
