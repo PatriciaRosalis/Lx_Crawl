@@ -11,7 +11,19 @@ export default class PubCrawlDetail extends Component {
       pubCrawl: null
     };
   }
-
+  getJSDateParsed(date) {
+    date = new Date(date);
+    console.log("Date", date)
+    return `${this.getDay(date.getDate())}-${this.getMonth(
+      date.getMonth()
+    )}-${date.getFullYear()}`;
+  }
+  getDay(day) {
+    return day >= 10 ? day.toString() : '0' + day;
+  }
+  getMonth(month) {
+    return month >= 10 ? month.toString() : '0' + month;
+  }
   render() {
     if (!this.state.pubCrawl) return <div>Loading...</div>
     return (
@@ -29,9 +41,9 @@ export default class PubCrawlDetail extends Component {
             <h5 className="color-form" scope="row">Comments:</h5>
             <p className="black-color">{this.state.pubCrawl.comments}</p>
             <h5 className="color-form" scope="row">Start Date:</h5>
-            <p className="black-color">{this.state.pubCrawl.startDate}</p>
+            <p className="black-color">{this.getJSDateParsed(this.state.pubCrawl.startDate)}</p>
             <h5 className="color-form" scope="row">End Date:</h5>
-            <p className="black-color" colSpan="3">{this.state.pubCrawl.endDate}</p>
+            <p className="black-color" colSpan="3">{this.getJSDateParsed(this.state.pubCrawl.endDate)}</p>
             <h5 className="color-form" scope="row">Participants:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.participants}</p>
           </div>
