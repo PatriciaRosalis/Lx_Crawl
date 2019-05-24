@@ -11,7 +11,19 @@ export default class PubCrawlDetail extends Component {
       pubCrawl: null
     };
   }
-
+  getJSDateParsed(date) {
+    date = new Date(date);
+    console.log("Date", date)
+    return `${this.getDay(date.getDate())}-${this.getMonth(
+      date.getMonth()
+    )}-${date.getFullYear()}`;
+  }
+  getDay(day) {
+    return day >= 10 ? day.toString() : '0' + day;
+  }
+  getMonth(month) {
+    return month >= 10 ? month.toString() : '0' + month;
+  }
   render() {
     if (!this.state.pubCrawl) return <div>Loading...</div>
     return (
@@ -22,16 +34,16 @@ export default class PubCrawlDetail extends Component {
         <div className="card">
           <div className="card-body pub-detail" >
             <h3 className="black-color">Pub Crawl Details</h3>
-            <JoinBtn/>
-            <br/>
+            <JoinBtn />
+            <br />
             <h5 className="color-form" scope="col">PubCrawl Name:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.name}</p>
             <h5 className="color-form" scope="row">Comments:</h5>
             <p className="black-color">{this.state.pubCrawl.comments}</p>
             <h5 className="color-form" scope="row">Start Date:</h5>
-            <p className="black-color">{this.state.pubCrawl.startDate}</p>
+            <p className="black-color">{this.getJSDateParsed(this.state.pubCrawl.startDate)}</p>
             <h5 className="color-form" scope="row">End Date:</h5>
-            <p className="black-color" colSpan="3">{this.state.pubCrawl.endDate}</p>
+            <p className="black-color" colSpan="3">{this.getJSDateParsed(this.state.pubCrawl.endDate)}</p>
             <h5 className="color-form" scope="row">Participants:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.participants}</p>
 
@@ -45,14 +57,14 @@ export default class PubCrawlDetail extends Component {
           < hr />
           <div className="card-body  pub-detail">
             <h3 className="black-color">Places/ Routes </h3>
-            <br/> 
-            <h5 scope="col"></h5> 
+            <br />
+            <h5 scope="col"></h5>
             {this.state.pubCrawl.places.map((place, i) => <p className="" key={i}>
               <h5 className="color-form" scope="row">Pub name:</h5>
               <p className="black-color" value={place.namePub}>{place.namePub}</p>
               <h5 className="color-form" scope="row">Address:</h5>
               <p className="black-color" value={place.address}>{place.address}</p>
-              <hr/>
+              <hr />
             </p>)}
           </div >
         </div>
