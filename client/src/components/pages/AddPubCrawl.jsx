@@ -15,6 +15,7 @@ export default class AddPubCrawl extends Component {
       startDate: new Date(),
       endDate: new Date(),
       participants: 0,
+      pictureURL: "",
       message: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -28,16 +29,16 @@ export default class AddPubCrawl extends Component {
 
   handleClick(e) {
     e.preventDefault()
-    console.log(this.state.name)
-    let data = {
-      name: this.state.name,
-      places: this.state.places.filter(place => place.namePub.length > 0),
-      comments: this.state.comments,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate,
-      participants: this.state.participants,
-    }
-    api.addPubCrawl(data)
+    const uploadData = new FormData()
+    uploadData.append("name", this.state.name)
+    uploadData.append("places", JSON.stringify(this.state.places.filter(place => place.namePub.length > 0)))
+    uploadData.append("comments", this.state.comments)
+    uploadData.append("startDate", this.state.startDate)
+    uploadData.append("endDate", this.state.endDate)
+    uploadData.append("participants", this.state.participants)
+    uploadData.append("picture", this.state.pictureURL)
+
+    api.addPubCrawl(uploadData)
       .then(result => {
         this.props.history.push('/profile')
         console.log('SUCCESS!')
@@ -48,10 +49,18 @@ export default class AddPubCrawl extends Component {
           startDate: new Date(),
           endDate: new Date(),
           participants: "",
+          pictureURL: "",
           message: `Your Pub Crawl '${this.state.name}' has been created`
         })
       })
       .catch(err => this.setState({ message: err.toString() }))
+  }
+
+  handleFileChange=(e)=> {
+    console.log("The file added by the use is: ", e.target.files[0])
+    this.setState({
+      pictureURL: e.target.files[0]
+    })
   }
 
   handleLocation = (place,i) => {
@@ -59,7 +68,6 @@ export default class AddPubCrawl extends Component {
 
     copyPlaces[i].namePub = place.text // Change the value at position i
     copyPlaces[i].address = place.place_name // Change the value at position i
-    copyPlaces[i].location = {coordinates: place.center}  // Change the value at position i
     if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
       copyPlaces.push({
         namePub: "",
@@ -78,6 +86,12 @@ export default class AddPubCrawl extends Component {
         <form className="space">
           <div className="form-row form-act">
             <div className="form-group col-sm-6 col-25">
+
+            <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">Image</label>
+              <input type="file" name="picture" class="form-control" onChange={this.handleFileChange}/>
+
+            </div>            
+            <div className="form-group col-md-6">            
               <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">PubCrawl Name</label>
               <input className="mdl-textfield__input form-control" id="name" type="text" value={this.state.name} name="name" onChange={this.handleInputChange} placeholder="Pub Crawl Name..." />
             </div>
@@ -97,7 +111,7 @@ export default class AddPubCrawl extends Component {
               <label htmlFor="comments" className="mdl-textfield__label" className="color-form">Comments</label>
               <textarea className="form-control" id="comments" name="comments" placeholder="Comments" value={this.state.comments} /*name="comments"*/ cols="40" rows="3" onChange={this.handleInputChange} ></textarea >
             </div>
-            <h4>Places ({this.state.places.length})</h4>
+            <h4>Places</h4>
             {this.state.places.map((place, i) => <div className="form-group col-md-6" key={i}>
               <div>
                 <label htmlFor="namePub" className="mdl-textfield__label" className="label color-form">Pub Name</label>

@@ -1,6 +1,7 @@
 const express = require('express');
 const PubCrawl = require('../models/PubCrawl')
 const { isLoggedIn } = require('../middlewares')
+const upload = require('../configs/cloudinary')
 
 
 const router = express.Router();
@@ -31,15 +32,18 @@ router.get('/', (req, res, next) => {
 //});
 
 //Create a pubCrawl - that we will update with the one below.
-router.post('/add-pubcrawl', (req, res, next) => {
-  console.log(req.body)
-  PubCrawl.create({ 
+router.post('/add-pubcrawl', upload.single('picture'), (req, res, next) => {
+  
+  if(req.file){
+    let pictureURL = req.file.url;
+    PubCrawl.create({ 
     name: req.body.name,
-    places: req.body.places, 
+    places: JSON.parse(req.body.places), 
     comments: req.body.comments,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     participants: req.body.participants,
+    pictureURL: pictureURL,
     _user: req.user._id
   })
     .then(response => {
@@ -48,7 +52,27 @@ router.post('/add-pubcrawl', (req, res, next) => {
       );
     })
     .catch(err => next(err))
+  }else {
+    PubCrawl.create({ 
+      name: req.body.name,
+      places: req.body.places, 
+      comments: req.body.comments,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      participants: req.body.participants,
+      _user: req.user._id
+    })
+      .then(response => {
+        res.json(
+          response
+        );
+      })
+      .catch(err => next(err))
+  }
+  
 });
+
+
 
 //Route to get a specific pub crawl by its ID --- WORKS
 router.get('/:pubCrawlId', (req, res, next) => {
@@ -67,7 +91,8 @@ router.put('/:pubCrawlId', (req, res, next) => {
     comments,
     startDate,
     endDate,
-    participants
+    participants,
+    pictureURL
   } = req.body
   
   const updates =  { name,
@@ -75,7 +100,8 @@ router.put('/:pubCrawlId', (req, res, next) => {
     comments,
     startDate,
     endDate,
-    participants
+    participants,
+    pictureURL
   }
   PubCrawl.findByIdAndUpdate(req.params.pubCrawlId, updates, { new: true })
     .then(pubCrawl=> {

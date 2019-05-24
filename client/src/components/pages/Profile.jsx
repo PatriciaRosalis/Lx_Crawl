@@ -5,9 +5,10 @@ import api from "../../api";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
+
 export default class Profile extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       user: []
     }
@@ -95,9 +96,9 @@ export default class Profile extends Component {
 
                   <div className="cards" style={{ width: "18rem" }}>
                     <div className="card-body edit-profile-icon">
-                      {/* <img src="/beer.svg" alt="" width="250px" height="190px" /> */}
                       <h5 className="card-title ">{oneCrawl.name}</h5>
-                      <p className="card-text">Date <br/> {this.getJSDateParsed(oneCrawl.startDate)}</p>
+                      <img src={oneCrawl.pictureURL} alt="..."/>
+                      <p className="card-text">Will take place on: <br/> {this.getJSDateParsed(oneCrawl.startDate)}</p>
                       <div className="profile-social ">
                         <WhatsappShareButton className="padding-social" url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><WhatsappIcon size={32} round /></WhatsappShareButton>
                         <FacebookShareButton className="padding-social" url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} quote={oneCrawl.name} ><FacebookIcon size={32} round /></FacebookShareButton>

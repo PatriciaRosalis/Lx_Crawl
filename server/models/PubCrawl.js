@@ -33,6 +33,10 @@ const pubSchema = new mongoose.Schema({
     type: Number,
     max: 50,
   },
+  pictureURL: {
+    type: String,
+    default: "https://png.pngtree.com/svg/20170817/5f31811e8b.svg"
+  }
   // participantName: {
   //   type: [{
   //     type: String,
