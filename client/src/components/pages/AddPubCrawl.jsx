@@ -29,14 +29,14 @@ export default class AddPubCrawl extends Component {
 
   handleClick(e) {
     e.preventDefault()
-    const uploadData = new FormData()
+    /* const uploadData = new FormData()
     uploadData.append("name", this.state.name)
     uploadData.append("places", JSON.stringify(this.state.places.filter(place => place.namePub.length > 0)))
     uploadData.append("comments", this.state.comments)
     uploadData.append("startDate", this.state.startDate)
     uploadData.append("endDate", this.state.endDate)
     uploadData.append("participants", this.state.participants)
-    uploadData.append("picture", this.state.pictureURL)
+    uploadData.append("picture", this.state.pictureURL) */
 
     api.addPubCrawl(uploadData)
       .then(result => {

@@ -70,6 +70,22 @@ export default class EditPubCrawl extends Component {
       places: copyPlaces
     })
   }
+
+  getJSDateParsed(date) {
+    date = new Date(date);
+    console.log("Date", date)
+    return `${this.getDay(date.getDate())}-${this.getMonth(
+      date.getMonth()
+    )}-${date.getFullYear()}`;
+  }
+
+  getDay(day) {
+    return day >= 10 ? day.toString() : '0' + day;
+  }
+
+  getMonth(month) {
+    return month >= 10 ? month.toString() : '0' + month;
+  }
   render() {
     return (
       <div className="EditPubCrawl">
@@ -88,11 +104,11 @@ export default class EditPubCrawl extends Component {
           </div>
           <div className="form-group col-md-6">
             <label className="mdl-textfield__label" htmlFor="sdate" className="label color-form">Start Date:</label>
-            <input  className="mdl-textfield__input form-control"  type="date" value={this.state.startDate} name="startDate" onChange={this.handleInputChange} /> <br />
+            <input  className="mdl-textfield__input form-control"  type="date" value={this.getJSDateParsed(this.state.startDate)} name="startDate" onChange={this.handleInputChange} /> <br />
           </div>
           <div className="form-group col-md-6">
             <label className="mdl-textfield__label" htmlFor="edate" className="label color-form">End Date:</label>
-            <input className="mdl-textfield__input form-control"  type="date" value={this.state.endDate} name="endDate" onChange={this.handleInputChange} /> <br />
+            <input className="mdl-textfield__input form-control"  type="date" value={this.getJSDateParsed(this.state.endDate)} name="endDate" onChange={this.handleInputChange} /> <br />
           </div>
           <div className="form-group col-md-6"> 
             <label className="mdl-textfield__label" htmlFor="participants" className="label color-form">Participants:</label>
