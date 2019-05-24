@@ -97,7 +97,7 @@ export default class Profile extends Component {
                   <div className="cards" style={{ width: "18rem" }}>
                     <div className="card-body edit-profile-icon">
                       <h5 className="card-title ">{oneCrawl.name}</h5>
-                      <img src={oneCrawl.pictureURL} alt="..."/>
+                      <img src={oneCrawl.pictureURL} alt="..." className="cardImg" />
                       <p className="card-text">Will take place on: <br/> {this.getJSDateParsed(oneCrawl.startDate)}</p>
                       <div className="profile-social ">
                         <WhatsappShareButton className="padding-social" url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} title={oneCrawl.name} ><WhatsappIcon size={32} round /></WhatsappShareButton>
@@ -105,9 +105,9 @@ export default class Profile extends Component {
                         <EmailShareButton url={`https://lx-crawl.herokuapp.com/pubcrawl-detail/${oneCrawl._id}`} className="pr-10" title={oneCrawl.name} ><EmailIcon size={32} round /></EmailShareButton>
                         <br />
                       </div>
-                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns text-alg"> View Details</Link>
-                      <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg">Edit</Link>
-                      <button className="btns" onClick={() => this.handleClick(oneCrawl._id)}>Delete</button>
+                      <Link to={`/pubcrawl-detail/${oneCrawl._id}`} className="btns text-alg size-percent " > View Details</Link>
+                      <Link to={`/edit-pubCrawl/${oneCrawl._id}`} className="btns text-alg size-percent ">Edit</Link>
+                      <button className="btns size-percent " onClick={() => this.handleClick(oneCrawl._id)}>Delete</button>
                     </div>
                   </div>
                 </div>

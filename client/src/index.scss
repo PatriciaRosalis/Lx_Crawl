@@ -145,8 +145,10 @@ body {
 .edit-profile-icon {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: unset;
   background: white;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-social {
@@ -164,6 +166,10 @@ body {
   width: 100px;
 }
 
+.size-percent {
+  width: 100%;
+}
+
 .btn-flx {
   display: flex;
   align-items: center;
@@ -172,4 +178,15 @@ body {
 
 .padding-social {
   padding-right: 10px;
+}
+
+.cardImg {
+  width: 130px;
+  height: 150px;
+}
+
+.bcg-input {
+  background: none;
+  border:none;
+  color:white;
 }
