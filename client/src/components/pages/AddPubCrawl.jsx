@@ -89,8 +89,7 @@ export default class AddPubCrawl extends Component {
             <div className="form-group col-sm-6 col-25">
 
             <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">Image</label>
-              <input type="file" name="picture" class="form-control" onChange={this.handleFileChange}/>
-
+              <input type="file" name="picture" class="form-control bcg-input" onChange={this.handleFileChange}/>
             </div>            
             <div className="form-group col-md-6">            
               <label htmlFor="pubcrawl" className="mdl-textfield__label" className="color-form">PubCrawl Name</label>
