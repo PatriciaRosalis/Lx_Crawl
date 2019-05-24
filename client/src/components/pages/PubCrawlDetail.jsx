@@ -34,6 +34,13 @@ export default class PubCrawlDetail extends Component {
             <p className="black-color" colSpan="3">{this.state.pubCrawl.endDate}</p>
             <h5 className="color-form" scope="row">Participants:</h5>
             <p className="black-color" colSpan="3">{this.state.pubCrawl.participants}</p>
+
+            {/* <div>
+              <h5 className="color-form" scope="row">Join</h5>
+              <input placeholder="Your name here"></input>
+              <p className="black-color" colSpan="3">{this.state.pubCrawl.participantName}</p>
+            </div> */}
+
           </div>
           < hr />
           <div className="card-body  pub-detail">
