@@ -32,7 +32,7 @@ export default class EditPubCrawl extends Component {
     console.log(this.state.name)
     let data = {
       name: this.state.name,
-      places: this.state.places,
+      places: this.state.places.filter(place => place.namePub.length > 0),
       comments: this.state.comments,
       startDate: this.state.startDate,
       endDate: this.state.endDate,
@@ -59,6 +59,7 @@ export default class EditPubCrawl extends Component {
 
     copyPlaces[i].namePub = place.text // Change the value at position i
     copyPlaces[i].address = place.place_name // Change the value at position i
+    copyPlaces[i].location = {coordinates: place.center}  // Change the value at position i
     if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
       copyPlaces.push({
         namePub: "",
