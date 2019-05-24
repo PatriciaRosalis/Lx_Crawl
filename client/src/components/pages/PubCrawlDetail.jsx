@@ -51,7 +51,7 @@ export default class PubCrawlDetail extends Component {
         let divisor = Math.max(1, length-1)
         console.log(this.state.pubCrawl.places[i].location.coordinates);
         
-        this.marker = new mapboxgl.Marker({ color: `rgb(${255*i/divisor},0,${255-255*i/divisor})` })
+        new mapboxgl.Marker({ color: `rgb(${255*i/divisor},0,${255-255*i/divisor})` })
           .setLngLat(this.state.pubCrawl.places[i].location.coordinates)
           .addTo(this.map)
       }
@@ -67,12 +67,9 @@ export default class PubCrawlDetail extends Component {
 
       <div className="PubCrawlDetail">
         <Navbar />
-
-
-
         <div className="card">
         <div className="containerMap">
-              <div className="map" ref={this.mapRef} style={{height: 300, width: 400}}></div>
+              <div className="map" ref={this.mapRef}></div>
         </div>
           <div className="card-body pub-detail" >
             <h3 className="black-color">Pub Crawl Details</h3>
