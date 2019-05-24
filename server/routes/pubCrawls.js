@@ -92,7 +92,6 @@ router.put('/:pubCrawlId', (req, res, next) => {
     startDate,
     endDate,
     participants,
-    pictureURL
   } = req.body
   
   const updates =  { name,
@@ -101,7 +100,6 @@ router.put('/:pubCrawlId', (req, res, next) => {
     startDate,
     endDate,
     participants,
-    pictureURL
   }
   PubCrawl.findByIdAndUpdate(req.params.pubCrawlId, updates, { new: true })
     .then(pubCrawl=> {

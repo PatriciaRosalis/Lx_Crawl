@@ -68,6 +68,7 @@ export default class AddPubCrawl extends Component {
 
     copyPlaces[i].namePub = place.text // Change the value at position i
     copyPlaces[i].address = place.place_name // Change the value at position i
+    copyPlaces[i].location = {coordinates: place.center}
     if (i === this.state.places.length - 1) { // If we are modifying the last element, add an extra place
       copyPlaces.push({
         namePub: "",
