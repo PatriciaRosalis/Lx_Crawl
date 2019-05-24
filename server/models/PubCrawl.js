@@ -31,7 +31,7 @@ const pubSchema = new mongoose.Schema({
   },
   participants: {
     type: Number,
-    max: 15,
+    max: 50,
   }
 }, {
   timestamps: {
