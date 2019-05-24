@@ -95,6 +95,7 @@ export default class Profile extends Component {
 
                   <div className="cards" style={{ width: "18rem" }}>
                     <div className="card-body edit-profile-icon">
+                      {/* <img src="/beer.svg" alt="" width="250px" height="190px" /> */}
                       <h5 className="card-title ">{oneCrawl.name}</h5>
                       <p className="card-text">Date <br/> {this.getJSDateParsed(oneCrawl.startDate)}</p>
                       <div className="profile-social ">
