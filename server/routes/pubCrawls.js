@@ -55,7 +55,7 @@ router.post('/add-pubcrawl', upload.single('picture'), (req, res, next) => {
   }else {
     PubCrawl.create({ 
       name: req.body.name,
-      places: req.body.places, 
+      places: JSON.parse(req.body.places), 
       comments: req.body.comments,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
