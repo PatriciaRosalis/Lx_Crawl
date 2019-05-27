@@ -10,16 +10,6 @@ import api from '../api';
 import Profile from './pages/Profile';
 
 export default class App extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     pubCrawl: []
-  //   }
-  // }
-
-  // handleLogoutClick(e) {
-  //   api.logout()
-  // }
 
   render() {
     return (
